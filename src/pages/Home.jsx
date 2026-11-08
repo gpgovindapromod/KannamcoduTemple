@@ -5,10 +5,10 @@ import SectionHeader from '../components/SectionHeader';
 import GalleryGrid from '../components/GalleryGrid';
 import GoldenParticles from '../components/GoldenParticles';
 import InteractiveDevotion from '../components/InteractiveDevotion';
+import EventFeatureCard from '../components/EventFeatureCard';
 import ShinyText from '../components/reactbits/ShinyText';
 import BlurText from '../components/reactbits/BlurText';
 import SpotlightCard from '../components/reactbits/SpotlightCard';
-import TiltedCard from '../components/reactbits/TiltedCard';
 import AnimatedContent from '../components/reactbits/AnimatedContent';
 
 export default function Home() {
@@ -192,49 +192,40 @@ export default function Home() {
           <div className="row g-3 g-lg-4">
             <div className="col-md-6 col-lg-4">
               <AnimatedContent delay={0.08} distance={20} className="h-100">
-                <SpotlightCard className="h-100 rounded-4" spotlightColor="rgba(255, 183, 3, 0.18)">
-                  <Link className="event-card h-100 text-decoration-none" to="/events#thaipooyam">
-                    <div className="event-icon"><i className="fas fa-fire text-warning"></i></div>
-                    <span className="event-name-mal">മഹാ തൈപൂയം</span>
-                    <span className="event-name-eng">Maha Thaipooyam (10 Days Festival)</span>
-                    <p className="event-desc">
-                      മകരമാസത്തിലെ പൂയം നക്ഷത്രത്തിൽ 10 ദിവസത്തെ കൊടിയേറ്റ ഉത്സവമായി ആഘോഷിക്കുന്നു. പള്ളിവേട്ട, ആറാട്ട്, ചന്ദ്രപ്പൊങ്കാലയും മഞ്ഞൾ നീരാട്ടും സമ്പൂർണ്ണ അന്നദാനവും നടക്കുന്നു.
-                    </p>
-                    <span className="event-badge">മകരമാസം · പൂയം നക്ഷത്രം →</span>
-                  </Link>
-                </SpotlightCard>
+                <EventFeatureCard
+                  icon="fa-fire"
+                  titleMal="മഹാ തൈപൂയം"
+                  titleEng="Maha Thaipooyam (10 Days Festival)"
+                  desc="മകരമാസത്തിലെ പൂയം നക്ഷത്രത്തിൽ 10 ദിവസത്തെ കൊടിയേറ്റ ഉത്സവമായി ആഘോഷിക്കുന്നു. പള്ളിവേട്ട, ആറാട്ട്, ചന്ദ്രപ്പൊങ്കാലയും മഞ്ഞൾ നീരാട്ടും സമ്പൂർണ്ണ അന്നദാനവും നടക്കുന്നു."
+                  badgeText="മകരമാസം · പൂയം നക്ഷത്രം →"
+                  to="/events#thaipooyam"
+                />
               </AnimatedContent>
             </div>
 
             <div className="col-md-6 col-lg-4">
               <AnimatedContent delay={0.16} distance={20} className="h-100">
-                <SpotlightCard className="h-100 rounded-4" spotlightColor="rgba(255, 183, 3, 0.18)">
-                  <Link className="event-card h-100 text-decoration-none" to="/events#skanda-shashti">
-                    <div className="event-icon"><i className="fas fa-star-of-life text-warning"></i></div>
-                    <span className="event-name-mal">സ്കന്ദ ഷഷ്ഠി</span>
-                    <span className="event-name-eng">Skanda Shashti Mahotsavam</span>
-                    <p className="event-desc">
-                      ഭഗവാന്റെ യുദ്ധവിജയത്തിനായി പാർവ്വതീദേവി അനുഷ്ഠിച്ച 6 ദിവസത്തെ വ്രതാനുഷ്ഠാന സ്മരണയിൽ ഭക്തിസാന്ദ്രമായി ആചരിക്കുന്നു.
-                    </p>
-                    <span className="event-badge">തുലാമാസം · 6 ദിവസത്തെ വ്രതം →</span>
-                  </Link>
-                </SpotlightCard>
+                <EventFeatureCard
+                  icon="fa-star-of-life"
+                  titleMal="സ്കന്ദ ഷഷ്ഠി"
+                  titleEng="Skanda Shashti Mahotsavam"
+                  desc="ഭഗവാന്റെ യുദ്ധവിജയത്തിനായി പാർവ്വതീദേവി അനുഷ്ഠിച്ച 6 ദിവസത്തെ വ്രതാനുഷ്ഠാന സ്മരണയിൽ ഭക്തിസാന്ദ്രമായി ആചരിക്കുന്നു."
+                  badgeText="തുലാമാസം · 6 ദിവസത്തെ വ്രതം →"
+                  to="/events#skanda-shashti"
+                />
               </AnimatedContent>
             </div>
 
             <div className="col-md-6 col-lg-4">
               <AnimatedContent delay={0.24} distance={20} className="h-100">
-                <SpotlightCard className="h-100 rounded-4" spotlightColor="rgba(255, 183, 3, 0.18)">
-                  <Link className="event-card h-100 text-decoration-none" to="/events#shasti">
-                    <div className="event-icon"><i className="fas fa-moon text-warning"></i></div>
-                    <span className="event-name-mal">മാസ ഷഷ്ഠി വ്രതം</span>
-                    <span className="event-name-eng">Monthly Shashti Pooja</span>
-                    <p className="event-desc">
-                      വ്രതങ്ങളിൽ ഏറ്റവും ശ്രേഷ്ഠമായ ഷഷ്ഠിവ്രതം ഉദ്ദിഷ്ടകാര്യ സിദ്ധിക്കായി മാസംതോറും ഭക്തർ അനുഷ്ഠിക്കുന്നു. ഉച്ചയ്ക്ക് ഒരു നേരം വെള്ളനിവേദ്യം മാത്രം ഭുജിച്ച് ഭക്തിപൂർവ്വം സുബ്രഹ്മണ്യ ഭജനം നടത്തുന്നു.
-                    </p>
-                    <span className="event-badge">എല്ലാ മലയാള മാസവും →</span>
-                  </Link>
-                </SpotlightCard>
+                <EventFeatureCard
+                  icon="fa-moon"
+                  titleMal="മാസ ഷഷ്ഠി വ്രതം"
+                  titleEng="Monthly Shashti Pooja"
+                  desc="വ്രതങ്ങളിൽ ഏറ്റവും ശ്രേഷ്ഠമായ ഷഷ്ഠിവ്രതം ഉദ്ദിഷ്ടകാര്യ സിദ്ധിക്കായി മാസംതോറും ഭക്തർ അനുഷ്ഠിക്കുന്നു. ഉച്ചയ്ക്ക് ഒരു നേരം വെള്ളനിവേദ്യം മാത്രം ഭുജിച്ച് ഭക്തിപൂർവ്വം സുബ്രഹ്മണ്യ ഭജനം നടത്തുന്നു."
+                  badgeText="എല്ലാ മലയാള മാസവും →"
+                  to="/events#shasti"
+                />
               </AnimatedContent>
             </div>
           </div>

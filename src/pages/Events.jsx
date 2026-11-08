@@ -4,6 +4,7 @@ import { EVENTS_DATA } from '../data/templeData';
 import PageHero from '../components/PageHero';
 import DarshanBar from '../components/DarshanBar';
 import SectionHeader from '../components/SectionHeader';
+import EventDetailCard from '../components/EventDetailCard';
 
 export default function Events() {
   const [activeTab, setActiveTab] = useState('yearly');
@@ -69,34 +70,16 @@ export default function Events() {
             />
 
             {EVENTS_DATA.yearly.map((evt) => (
-              <div key={evt.id} className="event-detail-card mb-4" id={evt.id}>
-                <div className="row g-0">
-                  <div className="col-lg-5">
-                    <img
-                      src={evt.images[0]}
-                      className="event-card-img h-100"
-                      alt={evt.title}
-                      style={{
-                        minHeight: '270px',
-                        objectFit: evt.id.includes('chathayam') || evt.id.includes('samadhi') ? 'contain' : 'cover',
-                        background: '#4a120b'
-                      }}
-                    />
-                  </div>
-                  <div className="col-lg-7">
-                    <div className="card-body p-4">
-                      <div className="d-flex justify-content-between align-items-center mb-1 flex-wrap gap-2">
-                        <h3 className="mb-0" style={{ fontFamily: 'var(--font-malayalam)', color: 'var(--dark-brown)', fontWeight: 700 }}>{evt.title}</h3>
-                        <span className="badge bg-danger rounded-pill px-3 py-2">{evt.badge}</span>
-                      </div>
-                      <div className="eng mb-3" style={{ color: 'var(--saffron-dark)', fontSize: '0.88rem', letterSpacing: '0.8px', fontWeight: 600 }}>{evt.eng}</div>
-                      {evt.paragraphs.map((p, idx) => (
-                        <p key={idx} style={{ fontFamily: 'var(--font-malayalam)', lineHeight: '1.9', textAlign: 'justify', color: '#443', fontSize: '0.98rem' }}>{p}</p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <EventDetailCard
+                key={evt.id}
+                id={evt.id}
+                title={evt.title}
+                eng={evt.eng}
+                badge={evt.badge}
+                images={evt.images}
+                paragraphs={evt.paragraphs}
+                layout="horizontal"
+              />
             ))}
           </div>
         )}
@@ -113,25 +96,15 @@ export default function Events() {
 
             <div className="row g-4">
               {EVENTS_DATA.monthly.map((m) => (
-                <div key={m.id} className="col-md-6 col-lg-4" id={m.id}>
-                  <div className="event-detail-card h-100">
-                    <img
-                      src={m.images[0]}
-                      className="event-card-img"
-                      alt={m.title}
-                      style={{
-                        height: '240px',
-                        objectFit: m.id.includes('chathayam') ? 'contain' : 'cover',
-                        background: '#4a120b',
-                        objectPosition: m.id === 'uthram' ? 'center 30%' : 'center'
-                      }}
-                    />
-                    <div className="card-body p-4">
-                      <h3 style={{ fontFamily: 'var(--font-malayalam)', color: 'var(--dark-brown)', fontSize: '1.3rem', fontWeight: 700 }}>{m.title}</h3>
-                      <div className="eng mb-2" style={{ color: 'var(--saffron-dark)', fontSize: '0.84rem', letterSpacing: '0.8px', fontWeight: 600 }}>{m.eng}</div>
-                      <p style={{ fontFamily: 'var(--font-malayalam)', lineHeight: '1.85', textAlign: 'justify', color: '#443', fontSize: '0.94rem' }}>{m.desc}</p>
-                    </div>
-                  </div>
+                <div key={m.id} className="col-md-6 col-lg-4">
+                  <EventDetailCard
+                    id={m.id}
+                    title={m.title}
+                    eng={m.eng}
+                    images={m.images}
+                    desc={m.desc}
+                    layout="vertical"
+                  />
                 </div>
               ))}
             </div>
