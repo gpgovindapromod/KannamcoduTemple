@@ -107,13 +107,6 @@ export const COMMITTEE_DATA = {
   ],
 };
 
-// Flat list helper for legacy compatibility
-export const COMMITTEE_FLAT = [
-  COMMITTEE_DATA.spiritualLeader,
-  ...COMMITTEE_DATA.executives,
-  ...COMMITTEE_DATA.members,
-];
-
 // ── CATEGORIZED VAZHIPADU (OFFERINGS) ──
 export const VAZHIPADU_CATEGORIES = {
   archana: {

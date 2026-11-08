@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GALLERY_DATA } from '../data/templeData';
+import { GALLERY_DATA, GALLERY_CATEGORIES } from '../data/templeData';
 import Lightbox from './Lightbox';
 
 export default function GalleryGrid({ limit = 0, showFilters = true }) {
@@ -19,36 +19,15 @@ export default function GalleryGrid({ limit = 0, showFilters = true }) {
     <>
       {showFilters && (
         <div className="gallery-filters">
-          <button
-            className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('all')}
-          >
-            All Photos
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === 'vel-kavadi' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('vel-kavadi')}
-          >
-            Vel Kavadi
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === 'manj-neerattu' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('manj-neerattu')}
-          >
-            Manj Neerattu
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === 'agni-kavadi' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('agni-kavadi')}
-          >
-            Agni Kavadi
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === 'temple' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('temple')}
-          >
-            Temple Views
-          </button>
+          {GALLERY_CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              className={`filter-btn ${activeFilter === cat.id ? 'active' : ''}`}
+              onClick={() => setActiveFilter(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
       )}
 
