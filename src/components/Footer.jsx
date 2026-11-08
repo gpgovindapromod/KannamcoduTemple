@@ -1,0 +1,109 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export default function Footer() {
+  return (
+    <>
+      <footer className="temple-footer">
+        <div className="container">
+          <div className="row g-5">
+            <div className="col-lg-4">
+              <div className="d-flex align-items-center gap-2 mb-3">
+                <div style={{ fontSize: '1.8rem' }}>🔱</div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold-light)', fontSize: '0.85rem', letterSpacing: '1px' }}>
+                    Vettikkavala Kannamcodu
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-malayalam)', color: 'rgba(255,220,150,0.7)', fontSize: '0.8rem' }}>
+                    ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം
+                  </div>
+                </div>
+              </div>
+              <p className="footer-desc">
+                കണ്ണങ്കോട് ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം കൊല്ലം കൊട്ടാരക്കര താലൂക്കിലെ പവിത്രമായ പുണ്യസങ്കേതമാണ്.
+              </p>
+              <p className="footer-desc mt-2" style={{ fontFamily: 'var(--font-malayalam)', fontSize: '0.85rem' }}>
+                ഭക്തിയുടെയും ആദ്ധ്യാത്മികതയുടെയും ഈ ദേവാലയം സർവ്വ ജനങ്ങൾക്കും തുറന്നിരിക്കുന്നു.
+              </p>
+            </div>
+
+            <div className="col-lg-2 col-md-4">
+              <div className="footer-col-title">Quick Links</div>
+              <ul className="footer-links">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/events">Events</Link></li>
+                <li><Link to="/committee">Committee</Link></li>
+                <li><Link to="/pooja">Pooja Chart</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-4">
+              <div className="footer-col-title">Contact</div>
+              <div className="footer-contact-item">
+                <i className="fas fa-map-marker-alt"></i>
+                <span>Kannamcodu, Kottarakara,<br />Kollam, Kerala – 691538</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fas fa-phone-alt"></i>
+                <span>+91 90744 39789<br />+91 95676 91538</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fas fa-envelope"></i>
+                <span>kannamkoduthaipooyam@gmail.com</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fas fa-clock"></i>
+                <span style={{ fontFamily: 'var(--font-malayalam)', fontSize: '0.85rem' }}>
+                  5:30 AM – 10:00 AM<br />5:00 PM – 7:30 PM
+                </span>
+              </div>
+            </div>
+
+            <div className="col-lg-3 col-md-4">
+              <div className="footer-col-title">Follow Us</div>
+              <p className="footer-desc mb-3">
+                ക്ഷേത്രത്തിലെ വിശേഷങ്ങളും തൈപ്പൂയം ഉൾപ്പെടെയുള്ള ഉത്സവ അറിയിപ്പുകളും ലഭിക്കുന്നതിനായി സോഷ്യൽ മീഡിയയിൽ ബന്ധപ്പെടുക.
+              </p>
+              <div className="social-icons">
+                <a href="https://www.facebook.com/share/151yud18di/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/kannamcodetemple/profilecard/?igsh=MWFuam14NzhpdTdwdg==" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@kannamkodutemple9083?si=_fHr5PoSufTtKzqh" target="_blank" rel="noopener noreferrer" className="social-icon" title="YouTube">
+                  <i className="fab fa-youtube"></i>
+                </a>
+                <a href="https://wa.me/919567691538" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
+                  <i className="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="container text-center">
+            <span>ॐ ശരവണ ഭവ &nbsp;|&nbsp;</span>
+            &copy; 2026 Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple. All rights reserved.
+          </div>
+        </div>
+      </footer>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/919567691538?text=Namaskaram%2C%20I%20would%20like%20to%20know%20more%20about%20the%20temple."
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp"
+      >
+        <i className="fab fa-whatsapp"></i>
+      </a>
+    </>
+  );
+}
+

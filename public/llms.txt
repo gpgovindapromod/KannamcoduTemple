@@ -1,0 +1,12 @@
+# Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple
+
+> Official website and devotional information portal for Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple, Kottarakara, Kollam, Kerala.
+
+## Pages & Resources
+- [/](https://kannamkodutemple.netlify.app/): Home page with temple history, daily darshan timings, and interactive devotional darshan.
+- [/events](https://kannamkodutemple.netlify.app/events): Annual festivals including Maha Thaipooyam Mahotsavam (22 January 2027), Skanda Shashti, and monthly poojas.
+- [/pooja](https://kannamkodutemple.netlify.app/pooja): Daily pooja timetable chart, offering planner, and complete 51 vazhipadu list.
+- [/committee](https://kannamkodutemple.netlify.app/committee): Temple administration committee members and contact directory.
+- [/gallery](https://kannamkodutemple.netlify.app/gallery): Photo gallery of Thaipooyam, Vel Kavadi, and Agni Kavadi celebrations.
+- [/contact](https://kannamkodutemple.netlify.app/contact): Official contact numbers, WhatsApp, and Google Maps location.
+

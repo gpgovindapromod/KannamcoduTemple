@@ -1,0 +1,2264 @@
+/* ===================================================
+   Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple
+   Unified Master Stylesheet (React Version)
+=================================================== */
+
+:root {
+  --saffron: #FF6B00;
+  --saffron-dark: #D44B00;
+  --gold: #D4A017;
+  --gold-light: #F7D066;
+  --gold-dark: #A67C00;
+  --dark-maroon: #2C0F08;
+  --deep-red: #6D1405;
+  --cream: #FFFBF3;
+  --cream-dark: #F7EBD3;
+  --dark-brown: #3A1809;
+  --medium-brown: #663319;
+  --text-dark: #2A150A;
+  --text-muted: #5C4336;
+  --card-bg: #FFFFFF;
+  --border-gold: rgba(212, 160, 23, 0.28);
+  --shadow-sm: 0 4px 14px rgba(44, 15, 8, 0.06);
+  --shadow-md: 0 8px 26px rgba(44, 15, 8, 0.1);
+  --shadow-lg: 0 16px 40px rgba(44, 15, 8, 0.16);
+  --gradient-saffron: linear-gradient(135deg, #FF6B00 0%, #D4A017 100%);
+  --gradient-maroon: linear-gradient(135deg, #2C0F08 0%, #5E1407 50%, #2C0F08 100%);
+  --font-display: 'Cinzel Decorative', serif;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lora', serif;
+  --font-malayalam: 'Noto Sans Malayalam', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-saffron);
+  border-radius: 4px;
+}
+
+/* ===================================================
+   NAVBAR
+=================================================== */
+.temple-navbar {
+  background: var(--gradient-maroon);
+  border-bottom: 3px solid var(--gold);
+  padding: 0.75rem 0;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.vel-logo {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle, var(--gold-light) 0%, var(--gold) 60%, var(--gold-dark) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 0 16px rgba(247, 208, 102, 0.6);
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.vel-logo:hover {
+  transform: rotate(15deg) scale(1.08);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text .temple-name-main {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.brand-text .temple-name-sub {
+  font-family: var(--font-malayalam);
+  font-size: 0.8rem;
+  color: #FFE5A3;
+  font-weight: 600;
+}
+
+.temple-navbar .navbar-nav .nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  color: rgba(255, 235, 195, 0.9) !important;
+  letter-spacing: 0.8px;
+  padding: 0.55rem 1rem !important;
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.temple-navbar .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2.5px;
+  background: var(--gold-light);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.temple-navbar .navbar-nav .nav-link:hover::after,
+.temple-navbar .navbar-nav .nav-link.active::after {
+  width: 75%;
+}
+
+.temple-navbar .navbar-nav .nav-link:hover,
+.temple-navbar .navbar-nav .nav-link.active {
+  color: #FFF !important;
+}
+
+.btn-pooja-nav {
+  background: var(--gradient-saffron);
+  color: #FFF !important;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.2rem;
+  border-radius: 25px;
+  border: 1px solid var(--gold-light);
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 3px 12px rgba(255, 107, 0, 0.35);
+}
+
+.btn-pooja-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 107, 0, 0.55);
+}
+
+.dropdown-menu {
+  background: #250B05;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  font-family: var(--font-malayalam);
+  font-size: 0.88rem;
+  color: #FFE6BD;
+  padding: 0.65rem 1.4rem;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(212, 160, 23, 0.25);
+  color: #FFF;
+}
+
+.navbar-toggler {
+  border-color: var(--gold) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(247,208,102,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ===================================================
+   HERO SECTIONS
+=================================================== */
+.hero-section {
+  min-height: 92vh;
+  background: linear-gradient(135deg, rgba(30, 10, 4, 0.94) 0%, rgba(95, 18, 6, 0.88) 50%, rgba(30, 10, 4, 0.95) 100%),
+    url('/images/temple/temple-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 1.5rem 5rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+}
+
+.hero-vel-icon {
+  font-size: 3.6rem;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 24px rgba(247, 208, 102, 0.8));
+  color: var(--gold-light);
+  display: inline-block;
+  animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-subtitle-top {
+  font-family: var(--font-malayalam);
+  font-size: 1.15rem;
+  color: #FFE6A8;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: #FFF2CE;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 15px rgba(247, 208, 102, 0.4);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.hero-title-mal {
+  display: block;
+  font-family: var(--font-malayalam);
+  font-size: clamp(1.4rem, 3.6vw, 2.3rem);
+  color: #FFD56B;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.9);
+  margin-top: 0.4rem;
+  font-weight: 700;
+}
+
+.hero-desc {
+  font-family: var(--font-malayalam);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #FFF8E6;
+  max-width: 800px;
+  margin: 1.2rem auto 2rem;
+  line-height: 1.85;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid var(--gold-light);
+  color: #FFF;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+
+.hero-phone-btn:hover {
+  background: var(--gold);
+  color: #200D03;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.5);
+  border-color: var(--gold-light);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, #FF7A00 0%, #D44B00 100%);
+  color: #FFF !important;
+  font-family: var(--font-malayalam);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 24px rgba(255, 107, 0, 0.5);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.75);
+  filter: brightness(1.15);
+}
+
+.btn-hero-secondary {
+  background: rgba(0, 0, 0, 0.45);
+  color: #FFE6A8 !important;
+  font-family: var(--font-malayalam);
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  border: 1.5px solid rgba(247, 208, 102, 0.6);
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(247, 208, 102, 0.2);
+  color: #FFF !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(247, 208, 102, 0.3);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero-scroll-indicator a {
+  color: var(--gold-light);
+  font-size: 1.5rem;
+  animation: bounceDown 2s infinite;
+  display: inline-block;
+  text-decoration: none;
+}
+
+@keyframes bounceDown {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(10px);
+  }
+
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+/* Inner Page Hero */
+.page-hero {
+  padding: 6.5rem 1rem 4.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  color: #FFF2CE;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(247, 208, 102, 0.4);
+  font-weight: 700;
+}
+
+.page-hero p {
+  font-family: var(--font-malayalam);
+  color: #FFE6BD;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ===================================================
+   DARSHAN STRIP (COMPACT PILL STYLE)
+=================================================== */
+.darshan-strip-compact {
+  background: linear-gradient(180deg, #1A0703 0%, #290803 50%, #1A0703 100%);
+  padding: 0.9rem 1rem;
+  border-top: 1px solid rgba(212, 160, 23, 0.5);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.darshan-compact-bar {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.55rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 0 15px rgba(212, 160, 23, 0.15);
+}
+
+.darshan-compact-label {
+  font-family: var(--font-malayalam);
+  font-size: 0.92rem;
+  color: #FFE6BD;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compact-flame {
+  font-size: 0.95rem;
+}
+
+.darshan-compact-item {
+  font-family: var(--font-malayalam);
+  font-size: 0.96rem;
+  color: #FFF;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compact-time-label {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.compact-time-val {
+  font-family: var(--font-heading);
+  color: #FFF;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.compact-divider {
+  color: rgba(212, 160, 23, 0.6);
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .darshan-compact-bar {
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+    gap: 0.5rem;
+  }
+  .compact-divider {
+    display: none;
+  }
+  .darshan-compact-item {
+    font-size: 0.88rem;
+  }
+}
+
+/* ===================================================
+   SECTION HEADERS
+=================================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--saffron);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--dark-brown);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.section-title-mal {
+  display: block;
+  font-family: var(--font-malayalam);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--medium-brown);
+  margin-top: 0.3rem;
+  font-weight: 600;
+}
+
+.section-divider {
+  width: 90px;
+  height: 3px;
+  background: var(--gradient-saffron);
+  margin: 1rem auto;
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0.5rem auto 0;
+  line-height: 1.7;
+}
+
+/* ===================================================
+   STATS STRIP
+=================================================== */
+.about-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  flex: 1 1 120px;
+  background: #FFF;
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--saffron);
+  font-weight: 700;
+}
+
+.stat-label {
+  font-family: var(--font-malayalam);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ===================================================
+   EVENT TABS (CLEAN, NON-STICKY & ELEGANT)
+=================================================== */
+.events-tabs-container {
+  background: var(--cream);
+  padding: 1.5rem 0 0.5rem;
+  position: static;
+  z-index: 10;
+}
+
+.events-tabs-pill-box {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  background: #FFF;
+  padding: 6px;
+  border-radius: 50px;
+  max-width: 620px;
+  margin: 0 auto;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: 0 4px 16px rgba(44, 15, 8, 0.06);
+}
+
+.event-tab-btn {
+  flex: 1;
+  padding: 0.75rem 1.4rem;
+  border-radius: 40px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-malayalam);
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--medium-brown);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.event-tab-btn:hover {
+  color: var(--dark-brown);
+  background: rgba(212, 160, 23, 0.08);
+}
+
+.event-tab-btn.active {
+  background: var(--gradient-saffron);
+  color: #FFF !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+  .events-tabs-pill-box {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 8px;
+  }
+
+  .event-tab-btn {
+    border-radius: 14px;
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+  }
+}
+
+.event-card {
+  background: #FFF;
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-saffron);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.event-card:hover::before {
+  opacity: 1;
+}
+
+.event-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.event-name-mal {
+  font-family: var(--font-malayalam);
+  font-size: 1.35rem;
+  color: var(--dark-brown);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.event-name-eng {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--saffron-dark);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.9rem;
+}
+
+.event-desc {
+  font-family: var(--font-malayalam);
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.event-badge {
+  display: inline-block;
+  margin-top: auto;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--saffron);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.event-detail-card {
+  background: #FFF;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--border-gold);
+  transition: all 0.3s ease;
+}
+
+.event-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.event-card-img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+/* ===================================================
+   POOJA TABLE & CARDS
+=================================================== */
+.pooja-table {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-gold);
+}
+
+.pooja-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pooja-table thead tr {
+  background: var(--gradient-saffron);
+}
+
+.pooja-table thead th {
+  font-family: var(--font-malayalam);
+  font-size: 0.9rem;
+  color: white;
+  padding: 1rem 1.2rem;
+  border: none;
+  font-weight: 700;
+}
+
+.pooja-table tbody tr {
+  border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+  transition: background 0.2s;
+}
+
+.pooja-table tbody tr:hover {
+  background: rgba(212, 160, 23, 0.05);
+}
+
+.pooja-table tbody td {
+  padding: 0.9rem 1.2rem;
+  font-family: var(--font-malayalam);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.pooja-table .time {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: #B22222;
+  font-weight: 700;
+}
+
+.pooja-item-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-gold);
+  transition: all 0.25s ease;
+}
+
+.pooja-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--saffron);
+}
+
+.pooja-num {
+  width: 38px;
+  height: 38px;
+  background: var(--gradient-saffron);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.pooja-name {
+  font-family: var(--font-malayalam);
+  font-size: 1.05rem;
+  color: var(--dark-brown);
+  font-weight: 600;
+}
+
+.search-box {
+  border: 2px solid var(--border-gold);
+  border-radius: 50px;
+  padding: 0.85rem 1.8rem;
+  font-family: var(--font-malayalam);
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: block;
+  background: #FFF;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+
+.search-box:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 18px rgba(255, 107, 0, 0.25);
+}
+
+/* ===================================================
+   GALLERY
+=================================================== */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  background: #FFF;
+  border: 1.5px solid var(--border-gold);
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.4rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--gradient-saffron);
+  color: #FFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-gold);
+}
+
+.gallery-img-wrap {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img-wrap {
+  transform: scale(1.06);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(35, 12, 4, 0.88) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay-text {
+  color: #FFF;
+  font-family: var(--font-malayalam);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.gallery-overlay-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: var(--gold-light);
+  font-size: 1.4rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay-icon {
+  opacity: 1;
+}
+
+/* Lightbox Modal */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 4, 2, 0.94);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-caption {
+  color: #FFE6BD;
+  font-family: var(--font-malayalam);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+  color: var(--gold-light);
+}
+
+/* ===================================================
+   COMMITTEE CARDS
+=================================================== */
+.member-card {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-gold);
+  transition: all 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.member-avatar {
+  background: var(--gradient-saffron);
+  border: 3.5px solid var(--gold);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.member-name {
+  font-family: var(--font-heading);
+  color: var(--dark-brown);
+  font-weight: 700;
+}
+
+.member-role {
+  font-family: var(--font-malayalam);
+  font-weight: 600;
+}
+
+.member-phone {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--medium-brown);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(212, 160, 23, 0.12);
+  transition: all 0.2s;
+}
+
+.member-phone:hover {
+  background: var(--saffron);
+  color: white !important;
+}
+
+/* ===================================================
+   BUTTONS & CONTACT
+=================================================== */
+.btn-temple {
+  background: var(--gradient-saffron);
+  border: none;
+  color: white !important;
+  font-family: var(--font-malayalam);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 30px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+}
+
+.btn-temple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+  filter: brightness(1.1);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gradient-saffron);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(255, 107, 0, 0.3);
+}
+
+.contact-info-text {
+  font-family: var(--font-malayalam);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.contact-info-text strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  color: var(--dark-brown);
+  letter-spacing: 0.8px;
+  margin-bottom: 0.2rem;
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+.temple-footer {
+  background: #1C0904;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4.5rem 0 2rem;
+  border-top: 3px solid var(--gold);
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  margin-bottom: 1.4rem;
+  position: relative;
+  font-weight: 700;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 35px;
+  height: 2px;
+  background: var(--saffron);
+}
+
+.footer-desc {
+  font-family: var(--font-malayalam);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 235, 205, 0.75);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+  color: rgba(255, 235, 205, 0.8);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+  padding-left: 6px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-malayalam);
+  font-size: 0.88rem;
+  color: rgba(255, 235, 205, 0.8);
+}
+
+.footer-contact-item i {
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  background: var(--saffron);
+  color: white;
+  transform: translateY(-3px);
+  border-color: transparent;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.8rem;
+  margin-top: 3.5rem;
+  font-family: var(--font-malayalam);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  font-size: 1.8rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.65);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 85vh;
+    padding: 5rem 1rem 3.5rem;
+  }
+
+  .darshan-container {
+    padding: 0.8rem 1.4rem;
+    border-radius: 40px;
+  }
+
+  .darshan-times {
+    font-size: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+/* ==========================================================================
+   IMMENSE & REACTIVE DEVOTIONAL COMPONENTS
+   ========================================================================== */
+
+/* Devotion Hub Card */
+.devotion-hub-card {
+  background: linear-gradient(135deg, #2c0906 0%, #4a0e08 50%, #1a0403 100%);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(212, 160, 23, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.devotion-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: 18px;
+  padding: 1.8rem 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.devotion-box:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--gold-light);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(212, 160, 23, 0.15);
+}
+
+.box-icon-div {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  color: var(--dark-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 15px rgba(212, 160, 23, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.box-icon-div:active {
+  transform: scale(0.92);
+}
+
+.bell-anim {
+  animation: bellSwing 0.8s ease-in-out infinite;
+}
+
+@keyframes bellSwing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  50% { transform: rotate(-20deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.lamp-btn {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 12px;
+  padding: 8px 12px;
+  color: #888;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lamp-btn.lit {
+  color: #ffb703;
+  border-color: #ffb703;
+  background: rgba(255, 183, 3, 0.15);
+  box-shadow: 0 0 18px rgba(255, 183, 3, 0.45);
+  transform: scale(1.05);
+}
+
+.lamp-icon {
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.chant-strip {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 14px;
+  padding: 10px 18px;
+}
+
+/* Floating Countdown Dock - Above WhatsApp Button */
+.floating-countdown-dock {
+  position: fixed;
+  bottom: 92px;
+  right: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.floating-countdown-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(22, 3, 1, 0.94);
+  border: 1px solid rgba(247, 208, 102, 0.55);
+  border-radius: 30px;
+  padding: 4px 11px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  color: #FFF;
+}
+
+.floating-countdown-pill:hover,
+.floating-countdown-pill.active {
+  transform: translateY(-2px);
+  border-color: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 12px rgba(247, 208, 102, 0.3);
+  background: rgba(35, 6, 2, 0.98);
+}
+
+.live-spark {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF5722;
+  box-shadow: 0 0 6px #FF5722;
+  animation: sparkPulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes sparkPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.pill-tag {
+  font-family: var(--font-malayalam);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+.pill-val {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.pill-arrow {
+  font-size: 0.65rem;
+  color: rgba(247, 208, 102, 0.8);
+  margin-left: 2px;
+}
+
+/* Expanded Card View */
+.countdown-expanded-card {
+  width: 275px;
+  background: linear-gradient(145deg, #240502 0%, #120201 100%);
+  border: 1.2px solid var(--gold-primary);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(212, 160, 23, 0.2);
+  color: #FFF;
+  animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.countdown-pop-title {
+  font-family: var(--font-heading);
+  color: var(--gold-light);
+  font-size: 0.98rem;
+  letter-spacing: 0.5px;
+}
+
+.festival-date-highlight {
+  background: rgba(212, 160, 23, 0.16);
+  border: 1px solid rgba(247, 208, 102, 0.45);
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.festival-date-text {
+  font-family: var(--font-malayalam);
+  font-size: 0.85rem;
+  color: #FFF;
+}
+
+.festival-date-text strong {
+  color: var(--gold-light);
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.festival-malayalam-date {
+  font-family: var(--font-malayalam);
+  font-size: 0.72rem;
+  color: #FFE082;
+  margin-top: 2px;
+}
+
+.countdown-pop-sub {
+  font-family: var(--font-malayalam);
+  font-size: 0.74rem;
+  color: rgba(255, 235, 205, 0.8);
+  line-height: 1.35;
+}
+
+.pop-timer-box {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(247, 208, 102, 0.25);
+  border-radius: 8px;
+  padding: 5px 3px;
+}
+
+.pop-timer-val {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFF;
+  line-height: 1;
+}
+
+.pop-timer-lbl {
+  display: block;
+  font-family: var(--font-malayalam);
+  font-size: 0.58rem;
+  color: var(--gold-light);
+  margin-top: 2px;
+}
+
+@media (max-width: 576px) {
+  .floating-countdown-dock {
+    bottom: 88px;
+    right: 18px;
+  }
+  .countdown-expanded-card {
+    width: 255px;
+  }
+}
+
+/* Offering Planner Card */
+.vazhipadu-planner-card {
+  border-radius: 20px;
+  background: #ffffff;
+  border: 2px solid rgba(212, 160, 23, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.offering-chip {
+  padding: 0.65rem 1rem;
+  border-radius: 25px;
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  background: var(--cream);
+  color: var(--dark-brown);
+  font-family: var(--font-malayalam);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.offering-chip:hover {
+  background: rgba(212, 160, 23, 0.15);
+  border-color: var(--gold-primary);
+}
+
+.offering-chip.selected {
+  background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+  color: #ffffff;
+  border-color: var(--maroon-primary);
+  box-shadow: 0 4px 12px rgba(110, 14, 10, 0.25);
+  font-weight: 600;
+}
+
+/* Infinite Loop Marquee Strip for Inner Pages */
+.darshan-marquee-strip {
+  background: linear-gradient(90deg, #1A0703 0%, #310C05 50%, #1A0703 100%);
+  border-top: 1px solid rgba(212, 160, 23, 0.45);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.45);
+  padding: 0.65rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.darshan-marquee-strip::before,
+.darshan-marquee-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.darshan-marquee-strip::before {
+  left: 0;
+  background: linear-gradient(to right, #1A0703, transparent);
+}
+
+.darshan-marquee-strip::after {
+  right: 0;
+  background: linear-gradient(to left, #1A0703, transparent);
+}
+
+.darshan-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  width: max-content;
+  animation: darshanMarqueeScroll 28s linear infinite;
+}
+
+.darshan-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes darshanMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.darshan-ticker-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 2rem;
+  font-family: var(--font-malayalam);
+  font-size: 0.95rem;
+  color: #FFF;
+  flex-shrink: 0;
+}
+
+.ticker-label {
+  color: var(--gold-light);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.ticker-item {
+  color: #FFF;
+}
+
+.ticker-item strong {
+  color: var(--gold-light);
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.ticker-holy {
+  color: #FFE082;
+  font-weight: 600;
+}
+
+.ticker-dot {
+  color: var(--gold-primary);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   REACT BITS ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* ShinyText - Sweeping Gold Sheen */
+.shiny-text {
+  color: #FFE6BD;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 230, 189, 0.4) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 230, 189, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shineSweep linear infinite;
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
+
+@keyframes shineSweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* SpotlightCard - Cursor Light Follower */
+.spotlight-card {
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* TiltedCard - 3D Perspective Tilt */
+.tilted-card-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilted-card-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.25s ease;
+  z-index: 3;
+}
+
+/* BlurText Wrapper */
+.blur-text-wrapper {
+  display: inline-block;
+}
+
+/* Compact Viewport Optimization for Home Festivals Section */
+.home-festivals-section {
+  padding: 2.2rem 0 2.5rem;
+}
+
+.home-festivals-section .section-header {
+  margin-bottom: 1.8rem;
+}
+
+.home-festivals-section .section-title {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  margin-bottom: 0.2rem;
+}
+
+.home-festivals-section .section-divider {
+  margin: 0.6rem auto;
+}
+
+.home-festivals-section .section-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.home-festivals-section .event-card {
+  padding: 1.4rem 1.4rem 1.2rem;
+  min-height: 290px;
+}
+
+.home-festivals-section .event-icon {
+  font-size: 1.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.home-festivals-section .event-name-mal {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.home-festivals-section .event-name-eng {
+  font-size: 0.78rem;
+  margin-bottom: 0.6rem;
+}
+
+.home-festivals-section .event-desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-festivals-section .event-badge {
+  font-size: 0.74rem;
+  padding: 4px 10px;
+}
+
+/* ==========================================================================
+   MASTER RESPONSIVE BREAKPOINT SYSTEM
+   Mobile (320px - 480px), Phablets (481px - 767px),
+   Tablets (768px - 991px), Desktops (992px - 1440px), Ultrawide (1440px+)
+   ========================================================================== */
+
+/* 1. Fluid Typography Scaling */
+:root {
+  --fluid-h1: clamp(1.85rem, 5vw + 0.5rem, 3.2rem);
+  --fluid-h1-mal: clamp(1.2rem, 3vw + 0.3rem, 2.1rem);
+  --fluid-h2: clamp(1.5rem, 3.5vw + 0.2rem, 2.4rem);
+  --fluid-h3: clamp(1.2rem, 2.5vw, 1.7rem);
+  --fluid-body: clamp(0.92rem, 1vw + 0.5rem, 1.05rem);
+}
+
+.hero-title {
+  font-size: var(--fluid-h1);
+  line-height: 1.25;
+}
+
+.hero-title-mal {
+  font-size: var(--fluid-h1-mal);
+  line-height: 1.4;
+}
+
+.section-title {
+  font-size: var(--fluid-h2);
+}
+
+/* 2. Responsive Hero Actions & Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary,
+.btn-hero-secondary {
+  padding: 0.75rem 1.4rem;
+  font-size: clamp(0.85rem, 1.2vw, 0.96rem);
+}
+
+/* 3. Small Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 4.5rem 0.8rem 2.8rem;
+  }
+
+  .hero-vel-icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-subtitle-top {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-desc {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    padding: 0 0.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-phone-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Compact Navbar */
+  .vel-logo {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+
+  .temple-name-main {
+    font-size: 0.92rem;
+  }
+
+  .temple-name-sub {
+    font-size: 0.78rem;
+  }
+
+  /* Devotional Interactive Hub */
+  .devotion-hub-card {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .devotion-box {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .box-icon-div {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+  .lamp-btn {
+    padding: 6px 8px;
+  }
+
+  .lamp-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Floating Dock & WhatsApp on Small Mobile */
+  .whatsapp-float {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .floating-countdown-dock {
+    bottom: 74px;
+    right: 16px;
+  }
+
+  .floating-countdown-pill {
+    padding: 3px 9px;
+    font-size: 0.72rem;
+  }
+
+  .countdown-expanded-card {
+    width: calc(100vw - 32px);
+    max-width: 290px;
+    right: 0;
+  }
+
+  /* Pooja Table Responsive Overflow */
+  .pooja-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pooja-table table {
+    min-width: 320px;
+  }
+
+  .pooja-table th,
+  .pooja-table td {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* 4. Tablets & Medium Screens (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-section {
+    padding: 5.5rem 1.5rem 4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pooja-table {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 5. Large Screens & Ultrawide (1400px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .hero-content {
+    max-width: 1080px;
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    max-width: 880px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 6. Touch Screen Specific Touch Target Enhancements */
+@media (pointer: coarse) {
+  .event-tab-btn,
+  .btn-temple,
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .dropdown-item {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ===================================================
+   MOBILE NAVIGATION DRAWER POLISH
+   =================================================== */
+@media (max-width: 991px) {
+  .temple-navbar .navbar-collapse {
+    background: linear-gradient(180deg, #240803 0%, #150301 100%);
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    margin-top: 0.8rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .temple-navbar .navbar-nav .nav-link {
+    padding: 0.75rem 0.5rem !important;
+    border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .temple-navbar .navbar-nav .nav-link::after {
+    display: none !important;
+  }
+
+  .temple-navbar .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(212, 160, 23, 0.25);
+    border-radius: 10px;
+    margin: 0.4rem 0 0.8rem 1rem !important;
+    padding: 0.4rem 0;
+  }
+
+  .temple-navbar .dropdown-item {
+    padding: 0.6rem 1rem;
+    font-size: 0.86rem;
+  }
+
+  /* Make sure native bootstrap collapse indicator works cleanly */
+  .navbar-nav .dropdown-toggle::after {
+    margin-left: auto;
+  }
+}
+
+/* ===================================================
+   CRITICAL MOBILE SCREEN IMMERSION & ANTI-DISTORTION
+   =================================================== */
+
+/* Prevent any horizontal body overflow */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}
+
+/* Home Carousel Image Responsive Heights */
+.home-carousel-img {
+  height: 480px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .home-carousel-img {
+    height: 280px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-carousel-img {
+    height: 230px !important;
+  }
+}
+
+/* Prevent Word/Text Overflow in Malayalam Titles on Mobile */
+.hero-title,
+.hero-title-mal,
+.section-title,
+.section-title-mal {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+.blur-text-wrapper {
+  display: inline;
+  word-break: normal;
+}
+
+/* Container side padding safeguards for small viewports */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Interactive Devotion Hub Mobile Stacking */
+  .devotion-box {
+    margin-bottom: 0.8rem;
+  }
+
+  .devotion-hub-card {
+    padding: 1.2rem 0.9rem !important;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+  }
+
+  .chant-strip {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Festival Cards on Mobile */
+  .home-festivals-section .event-card {
+    min-height: auto;
+    padding: 1.2rem 1rem !important;
+  }
+
+  .home-festivals-section .event-desc {
+    -webkit-line-clamp: unset !important;
+    max-height: none;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* Video Player Bounds */
+  .video-card video {
+    max-height: 240px !important;
+  }
+
+  /* Floating WhatsApp and Pill z-index isolation */
+  .whatsapp-float {
+    z-index: 1040;
+  }
+
+  .floating-countdown-dock {
+    z-index: 1039;
+  }
+}
+
+/* ===================================================
+   AUTHENTIC TRADITIONAL TEMPLE ORNAMENTATION & MOTIFS
+   =================================================== */
+
+/* Temple Sacred Divider */
+.temple-sacred-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0.8rem auto 1.2rem;
+  color: var(--gold-primary);
+  font-family: var(--font-heading);
+}
+
+.divider-flourish {
+  color: rgba(212, 160, 23, 0.6);
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.divider-vel {
+  font-size: 1.45rem;
+  color: var(--gold-light);
+  filter: drop-shadow(0 0 10px rgba(247, 208, 102, 0.7));
+  transform: translateY(-1px);
+}
+
+.diya-glow {
+  font-size: 0.85rem;
+  filter: drop-shadow(0 0 6px #FFA500);
+}
+
+/* Subtle Temple Wall Texture (Chitram & Kasavu) */
+body {
+  background-color: #FFFDF9;
+  background-image: 
+    radial-gradient(rgba(212, 160, 23, 0.04) 1px, transparent 1px),
+    radial-gradient(rgba(110, 14, 10, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Traditional Gold Border Corners (Aalila / Temple Gable Accent) */
+.temple-border-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 160, 23, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(44, 15, 8, 0.07);
+}
+
+.temple-border-card::before,
+.temple-border-card::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.75rem;
+  color: var(--gold-primary);
+  pointer-events: none;
+}
+
+.temple-border-card::before {
+  top: 6px;
+  left: 8px;
+}
+
+.temple-border-card::after {
+  bottom: 6px;
+  right: 8px;
+}
+
+/* Sacred Toranam & Top Bevel on Section Breaks */
+.hero-section {
+  box-shadow: inset 0 -30px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Enhancing Event Cards with Temple Sanctum Borders */
+.event-card {
+  border: 1.5px solid rgba(212, 160, 23, 0.38) !important;
+  box-shadow: 0 6px 20px rgba(74, 18, 11, 0.08) !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%) !important;
+}
+
+.event-card:hover {
+  border-color: var(--gold-light) !important;
+  box-shadow: 0 10px 30px rgba(212, 160, 23, 0.22) !important;
+}
+
+/* Gold Heading Accents */
+.section-title {
+  position: relative;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schema/v1/catalog.json",
+  "name": "Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple",
+  "description": "Devotional portal providing festival schedules, daily darshan timings, and pooja offerings.",
+  "url": "https://kannamkodutemple.netlify.app",
+  "resources": [
+    {
+      "name": "Pooja and Vazhipadu List",
+      "path": "/pooja",
+      "type": "webpage"
+    },
+    {
+      "name": "Temple Events & Thaipooyam Countdown",
+      "path": "/events",
+      "type": "webpage"
+    }
+  ]
+}
+
