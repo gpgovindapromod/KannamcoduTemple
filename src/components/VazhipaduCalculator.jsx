@@ -1,23 +1,16 @@
-import React, { useState } from 'react';
-import { VAZHIPADU_DATA } from '../data/templeData';
+import React, { useState, useMemo, useCallback } from 'react';
+import { MALAYALAM_STARS } from '../utils/constants';
+import { buildWhatsAppLink } from '../utils/helpers';
 
 export default function VazhipaduCalculator() {
   const [selectedItems, setSelectedItems] = useState({});
   const [devoteeName, setDevoteeName] = useState('');
-  const [star, setStar] = useState('അശ്വതി (Aswathi)');
+  const [star, setStar] = useState(MALAYALAM_STARS[0]);
   const [date, setDate] = useState('');
 
-  const stars = [
-    'അശ്വതി (Aswathi)', 'ഭരണി (Bharani)', 'കാർത്തിക (Karthika)', 'രോഹിണി (Rohini)',
-    'മകയിരം (Makayiram)', 'തിരുവാതിര (Thiruvathira)', 'പുണർതം (Punarpoosam)', 'പൂയം (Pooyam)',
-    'ആയില്യം (Ayilyam)', 'മകം (Makam)', 'പൂരം (Pooram)', 'ഉത്രം (Uthram)',
-    'അത്തം (Atham)', 'ചിത്തിര (Chithira)', 'ചോതി (Chothi)', 'വിശാഖം (Visakham)',
-    'അനിഴം (Anizham)', 'തൃക്കേട്ട (Thrikketta)', 'മൂലം (Moolam)', 'പൂരാടം (Pooradam)',
-    'ഉത്രാടം (Uthradam)', 'തിരുവോണം (Thiruvonam)', 'അവിട്ടം (Avittam)', 'ചതയം (Chathayam)',
-    'പൂരുരുട്ടാതി (Pooruruttathi)', 'ഉത്രട്ടാതി (Uthrattathi)', 'രേവതി (Revathi)'
-  ];
+  const stars = MALAYALAM_STARS;
 
-  const popularOfferings = [
+  const popularOfferings = useMemo(() => [
     { name: 'അഷ്ടദ്രവ്യ മഹാഗണപതിഹോമം', category: 'ഹോമം' },
     { name: 'പഞ്ചാമൃത അഭിഷേകം', category: 'അഭിഷേകം' },
     { name: 'പുഷ്പാഞ്ജലി', category: 'അർച്ചന' },
@@ -26,31 +19,30 @@ export default function VazhipaduCalculator() {
     { name: 'ഷഷ്ഠി നേർച്ച', category: 'വ്രതം' },
     { name: 'ശക്തിവേൽ ശരവണപൂജ', category: 'വിശേഷാൽ' },
     { name: 'തുലാഭാരം', category: 'നേർച്ച' },
-  ];
+  ], []);
 
-  const toggleOffering = (name) => {
+  const toggleOffering = useCallback((name) => {
     setSelectedItems(prev => {
       const copy = { ...prev };
       if (copy[name]) delete copy[name];
       else copy[name] = 1;
       return copy;
     });
-  };
+  }, []);
 
-  const selectedList = Object.keys(selectedItems);
+  const selectedList = useMemo(() => Object.keys(selectedItems), [selectedItems]);
 
-  const generateWhatsAppInquiry = () => {
+  const whatsAppUrl = useMemo(() => {
     if (selectedList.length === 0) return '#';
-    const text = encodeURIComponent(
+    const message = 
       `നമസ്കാരം, കണ്ണങ്കോട് ക്ഷേത്രത്തിൽ വഴിപാട് വിവരങ്ങൾ അറിയുവാൻ ആഗ്രഹിക്കുന്നു:\n` +
       `പേര്: ${devoteeName || 'ഭക്തൻ'}\n` +
       `നക്ഷത്രം: ${star}\n` +
       `തീയതി: ${date || 'ഉടൻ'}\n` +
       `വഴിപാടുകൾ:\n` +
-      selectedList.map((item, i) => `${i + 1}. ${item}`).join('\n')
-    );
-    return `https://wa.me/919567691538?text=${text}`;
-  };
+      selectedList.map((item, i) => `${i + 1}. ${item}`).join('\n');
+    return buildWhatsAppLink(message);
+  }, [selectedList, devoteeName, star, date]);
 
   return (
     <div className="vazhipadu-planner-card p-4 p-md-5 rounded-4 shadow-lg my-5 bg-white border" style={{ borderColor: 'var(--border-gold)' }}>
@@ -129,7 +121,7 @@ export default function VazhipaduCalculator() {
               <div className="small text-muted mt-1">{selectedList.join(', ')}</div>
             </div>
             <a
-              href={generateWhatsAppInquiry()}
+              href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-success rounded-pill px-4 py-2 fw-bold"
