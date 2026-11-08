@@ -34,7 +34,7 @@ export default function Events() {
       />
 
       {/* Prominent, clean tab switch */}
-      <div className="events-tabs-container py-3">
+      <div className="events-tabs-container">
         <div className="container">
           <div className="events-tabs-pill-box">
             <button
@@ -57,7 +57,7 @@ export default function Events() {
         </div>
       </div>
 
-      <div className="container py-5">
+      <div className="container py-3">
         {/* ONLY Yearly Events visible when 'yearly' tab is selected */}
         {activeTab === 'yearly' && (
           <div id="yearly-events-wrapper">
