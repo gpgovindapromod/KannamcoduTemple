@@ -10,6 +10,8 @@ import ShinyText from '../components/reactbits/ShinyText';
 import BlurText from '../components/reactbits/BlurText';
 import SpotlightCard from '../components/reactbits/SpotlightCard';
 import AnimatedContent from '../components/reactbits/AnimatedContent';
+import { TEMPLE_INFO } from '../utils/constants';
+import { buildTelLink } from '../utils/helpers';
 
 export default function Home() {
   const carouselImages = [
@@ -47,11 +49,11 @@ export default function Home() {
 
           {/* Quick Contact & Direction Bar */}
           <div className="hero-contact-strip my-3">
-            <a href="tel:+919074439789" className="hero-pill-btn">
-              <i className="fas fa-phone-alt text-warning"></i>+91 90744 39789
+            <a href={buildTelLink(TEMPLE_INFO.phones[0].raw)} className="hero-pill-btn">
+              <i className="fas fa-phone-alt text-warning"></i>{TEMPLE_INFO.phones[0].display}
             </a>
-            <a href="tel:+919567691538" className="hero-pill-btn">
-              <i className="fas fa-phone-alt text-warning"></i>+91 95676 91538
+            <a href={buildTelLink(TEMPLE_INFO.phones[1].raw)} className="hero-pill-btn">
+              <i className="fas fa-phone-alt text-warning"></i>{TEMPLE_INFO.phones[1].display}
             </a>
           </div>
 

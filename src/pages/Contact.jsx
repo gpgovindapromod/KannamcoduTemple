@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PageHero from '../components/PageHero';
 import DarshanBar from '../components/DarshanBar';
 import SectionHeader from '../components/SectionHeader';
+import { TEMPLE_INFO } from '../utils/constants';
+import { buildWhatsAppLink, buildTelLink } from '../utils/helpers';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -35,7 +37,7 @@ export default function Contact() {
             <div className="col-lg-5">
               <div className="map-wrapper mb-4 rounded-4 overflow-hidden shadow-sm border" style={{ borderColor: 'var(--border-gold)' }}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4161.458169666238!2d76.82735201077834!3d8.989288189571667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06752c721752b1%3A0xdcbe9c24c09fa645!2sKannamkodu%20Sri%20Subramanyan%20Temple!5e1!3m2!1sen!2sin!4v1734189667363!5m2!1sen!2sin"
+                  src={TEMPLE_INFO.location.mapsEmbedUrl}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -48,8 +50,7 @@ export default function Contact() {
                 <div className="contact-icon-wrap"><i className="fas fa-map-marker-alt"></i></div>
                 <div className="contact-info-text">
                   <strong>Address / വിലാസം</strong>
-                  Kannamcodu Sree Subrahmanya Swami Temple,<br />
-                  Kannamcodu, Kottarakara, Kollam District, Kerala – 691538
+                  {TEMPLE_INFO.location.address}
                 </div>
               </div>
 
@@ -57,8 +58,8 @@ export default function Contact() {
                 <div className="contact-icon-wrap"><i className="fas fa-phone-alt"></i></div>
                 <div className="contact-info-text">
                   <strong>Phone / ഫോൺ</strong>
-                  <a href="tel:+919074439789" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>+91 90744 39789</a><br />
-                  <a href="tel:+919567691538" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>+91 95676 91538</a>
+                  <a href={buildTelLink(TEMPLE_INFO.phones[0].raw)} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>{TEMPLE_INFO.phones[0].display}</a><br />
+                  <a href={buildTelLink(TEMPLE_INFO.phones[1].raw)} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>{TEMPLE_INFO.phones[1].display}</a>
                 </div>
               </div>
 
@@ -66,8 +67,8 @@ export default function Contact() {
                 <div className="contact-icon-wrap"><i className="fas fa-envelope"></i></div>
                 <div className="contact-info-text">
                   <strong>Email</strong>
-                  <a href="mailto:kannamkoduthaipooyam@gmail.com" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>
-                    kannamkoduthaipooyam@gmail.com
+                  <a href={`mailto:${TEMPLE_INFO.email}`} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>
+                    {TEMPLE_INFO.email}
                   </a>
                 </div>
               </div>
@@ -76,7 +77,9 @@ export default function Contact() {
                 <div className="contact-icon-wrap"><i className="fas fa-clock"></i></div>
                 <div className="contact-info-text">
                   <strong>Darshan Timings / ദർശന സമയം</strong>
-                  <span style={{ fontFamily: 'var(--font-malayalam)' }}>5:30 AM – 10:00 AM &nbsp;|&nbsp; 5:00 PM – 7:30 PM</span>
+                  <span style={{ fontFamily: 'var(--font-malayalam)' }}>
+                    {TEMPLE_INFO.darshan.morning.start} – {TEMPLE_INFO.darshan.morning.end} &nbsp;|&nbsp; {TEMPLE_INFO.darshan.evening.start} – {TEMPLE_INFO.darshan.evening.end}
+                  </span>
                 </div>
               </div>
 
@@ -86,7 +89,9 @@ export default function Contact() {
                 </div>
                 <div className="contact-info-text">
                   <strong>WhatsApp Helpline</strong>
-                  <a href="https://wa.me/919567691538" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>+91 95676 91538</a>
+                  <a href={buildWhatsAppLink('Namaskaram, I am contacting you from the temple website.')} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>
+                    {TEMPLE_INFO.whatsapp.display}
+                  </a>
                 </div>
               </div>
             </div>

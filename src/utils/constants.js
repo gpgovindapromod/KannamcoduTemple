@@ -44,3 +44,4 @@ export const MALAYALAM_STARS = [
   'ഉത്രാടം (Uthradam)', 'തിരുവോണം (Thiruvonam)', 'അവിട്ടം (Avittam)', 'ചതയം (Chathayam)',
   'പൂരുരുട്ടാതി (Pooruruttathi)', 'ഉത്രട്ടാതി (Uthrattathi)', 'രേവതി (Revathi)'
 ];
+

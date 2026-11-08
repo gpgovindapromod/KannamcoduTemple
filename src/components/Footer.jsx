@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TEMPLE_INFO } from '../utils/constants';
+import { buildWhatsAppLink, buildTelLink } from '../utils/helpers';
 
 export default function Footer() {
+  const defaultWhatsAppText = 'Namaskaram, I would like to know more about the temple.';
+
   return (
     <>
       <footer className="temple-footer">
@@ -15,7 +19,7 @@ export default function Footer() {
                     Vettikkavala Kannamcodu
                   </div>
                   <div style={{ fontFamily: 'var(--font-malayalam)', color: 'rgba(255,220,150,0.7)', fontSize: '0.8rem' }}>
-                    ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം
+                    {TEMPLE_INFO.nameMal}
                   </div>
                 </div>
               </div>
@@ -47,16 +51,20 @@ export default function Footer() {
               </div>
               <div className="footer-contact-item">
                 <i className="fas fa-phone-alt"></i>
-                <span>+91 90744 39789<br />+91 95676 91538</span>
+                <span>
+                  <a href={buildTelLink(TEMPLE_INFO.phones[0].raw)} className="text-light text-decoration-none">{TEMPLE_INFO.phones[0].display}</a><br />
+                  <a href={buildTelLink(TEMPLE_INFO.phones[1].raw)} className="text-light text-decoration-none">{TEMPLE_INFO.phones[1].display}</a>
+                </span>
               </div>
               <div className="footer-contact-item">
                 <i className="fas fa-envelope"></i>
-                <span>kannamkoduthaipooyam@gmail.com</span>
+                <span><a href={`mailto:${TEMPLE_INFO.email}`} className="text-light text-decoration-none">{TEMPLE_INFO.email}</a></span>
               </div>
               <div className="footer-contact-item">
                 <i className="fas fa-clock"></i>
                 <span style={{ fontFamily: 'var(--font-malayalam)', fontSize: '0.85rem' }}>
-                  5:30 AM – 10:00 AM<br />5:00 PM – 7:30 PM
+                  {TEMPLE_INFO.darshan.morning.start} – {TEMPLE_INFO.darshan.morning.end}<br />
+                  {TEMPLE_INFO.darshan.evening.start} – {TEMPLE_INFO.darshan.evening.end}
                 </span>
               </div>
             </div>
@@ -67,16 +75,16 @@ export default function Footer() {
                 ക്ഷേത്രത്തിലെ വിശേഷങ്ങളും തൈപ്പൂയം ഉൾപ്പെടെയുള്ള ഉത്സവ അറിയിപ്പുകളും ലഭിക്കുന്നതിനായി സോഷ്യൽ മീഡിയയിൽ ബന്ധപ്പെടുക.
               </p>
               <div className="social-icons">
-                <a href="https://www.facebook.com/share/151yud18di/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook">
+                <a href={TEMPLE_INFO.social.facebook} target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/kannamcodetemple/profilecard/?igsh=MWFuam14NzhpdTdwdg==" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
+                <a href={TEMPLE_INFO.social.instagram} target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://youtube.com/@kannamkodutemple9083?si=_fHr5PoSufTtKzqh" target="_blank" rel="noopener noreferrer" className="social-icon" title="YouTube">
+                <a href={TEMPLE_INFO.social.youtube} target="_blank" rel="noopener noreferrer" className="social-icon" title="YouTube">
                   <i className="fab fa-youtube"></i>
                 </a>
-                <a href="https://wa.me/919567691538" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
+                <a href={buildWhatsAppLink(defaultWhatsAppText)} target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
                   <i className="fab fa-whatsapp"></i>
                 </a>
               </div>
@@ -86,15 +94,15 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <div className="container text-center">
-            <span>ॐ ശരവണ ഭവ &nbsp;|&nbsp;</span>
-            &copy; 2026 Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple. All rights reserved.
+            <span>{TEMPLE_INFO.mantra} &nbsp;|&nbsp;</span>
+            &copy; {new Date().getFullYear()} {TEMPLE_INFO.name}. All rights reserved.
           </div>
         </div>
       </footer>
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/919567691538?text=Namaskaram%2C%20I%20would%20like%20to%20know%20more%20about%20the%20temple."
+        href={buildWhatsAppLink(defaultWhatsAppText)}
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
