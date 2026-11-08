@@ -210,8 +210,8 @@ body {
 =================================================== */
 .hero-section {
   min-height: 92vh;
-  background: linear-gradient(135deg, rgba(30, 10, 4, 0.94) 0%, rgba(95, 18, 6, 0.88) 50%, rgba(30, 10, 4, 0.95) 100%),
-    url('/images/temple/temple-hero.jpg') center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(20, 6, 3, 0.78) 0%, rgba(68, 12, 5, 0.72) 50%, rgba(20, 6, 3, 0.82) 100%),
+    url('/images/intro.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
