@@ -2092,6 +2092,51 @@ html, body {
   overflow-x: hidden !important;
 }
 
+.about-history-card {
+  border: 1.5px solid var(--border-gold);
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.about-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1.5px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-visual-wrapper {
+  border: 2px solid var(--border-gold);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  background: #000;
+}
+
+.about-visual-wrapper .home-carousel-img {
+  height: 480px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .about-visual-wrapper .home-carousel-img {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-visual-wrapper .home-carousel-img {
+    height: 300px;
+  }
+}
+
 /* Home Carousel Image Responsive Heights */
 .home-carousel-img {
   height: 480px;

@@ -93,31 +93,69 @@ export default function Home() {
             subtitle="Kannamcodu Sree Subrahmanya Swami Temple is a holistic spiritual place located in the heart of the Kannamcodu region of Kottarakara Thaluk at Kollam, Kerala, India."
           />
 
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <AnimatedContent direction="horizontal" distance={30} duration={0.65}>
-                <SpotlightCard
-                  className="p-4 p-md-5 rounded-4 shadow-sm bg-white border"
-                  style={{ borderColor: 'var(--border-gold)' }}
-                  spotlightColor="rgba(212, 160, 23, 0.12)"
-                >
-                  <p style={{ fontFamily: 'var(--font-malayalam)', textAlign: 'justify', lineHeight: '2', color: 'var(--text-dark)', fontSize: '1rem', marginBottom: '1.2rem' }}>
-                    ശ്രീനാരായണ ഗുരുദേവന്റെ പാദ മുദ്രയാൽ ധന്യമായ, ജനവാസം തീരെ കുറഞ്ഞ, സാധാരണക്കാരും കർഷകരും മാത്രം വസിച്ചിരുന്ന കണ്ണങ്കോട് എന്ന കൊച്ചു ഗ്രാമത്തിൽ <strong>125 വർഷങ്ങൾക്കു മുമ്പ്</strong> ഗുരുദേവന്റെ ശിഷ്യനായ കൊച്ചുനാരായണസ്വാമി എത്തിച്ചേരുകയും ഇപ്പോൾ ക്ഷേത്രം സ്ഥിതി ചെയ്യുന്ന സ്ഥലം ക്ഷേത്രനിർമാണത്തിന് അനുയോജ്യമാണെന്നും അവിടെ ക്ഷേത്രം നിർമ്മിക്കണമെന്ന ഗുരുദേവ കൽപ്പന അറിയിക്കുകയും ചെയ്തു.
-                  </p>
-                  <p style={{ fontFamily: 'var(--font-malayalam)', textAlign: 'justify', lineHeight: '2', color: 'var(--text-dark)', fontSize: '1rem', marginBottom: '1.2rem' }}>
-                    സ്ഥലത്തിന്റെ ഉടമസ്ഥത ഉണ്ടായിരുന്ന <strong>കിഴക്കേക്കര കുടുംബം</strong> തൃപ്പാദ കൽപ്പന ശിരസാ വഹിക്കുകയും അവിടെ ക്ഷേത്രം നിർമ്മിക്കുകയും ചെയ്തു. കൊച്ചുനാരായണസ്വാമി ക്ഷേത്രത്തിൽ സുബ്രഹ്മണ്യസ്വാമിയുടെ പ്രതീകമായ വേൽ പ്രതിഷ്ഠിക്കുകയും അതിന് പിന്നിലായി ഗുരുദേവന്റെ ചില്ലിട്ട ചിത്രവും കന്നിമൂലയിൽ മഹാഗണപതി ഭഗവാന്റെ വിഗ്രഹവും പ്രതിഷ്ഠിച്ചു.
-                  </p>
-                  <p style={{ fontFamily: 'var(--font-malayalam)', textAlign: 'justify', lineHeight: '2', color: 'var(--text-dark)', fontSize: '1rem', marginBottom: 0 }}>
-                    ഗുരുമന്ദിരം എന്ന സങ്കൽപ്പത്തിലായിരുന്നു ആളുകൾ എത്തിയിരുന്നത്. അതിനു കാരണം ആദ്യ ദർശനത്തിൽ തന്നെ ഗുരുദേവന്റെ ചിത്രമായിരുന്നു കാണാൻ കഴിഞ്ഞിരുന്നത്. കാലപ്പഴക്കത്തിൽ ഗുരുദേവ ചിത്രത്തിനും വേലിനും ജീർണത സംഭവിച്ചപ്പോൾ ദേവപ്രശ്നം അനിവാര്യമായി വരികയും ക്ഷേത്ര പുനർനിർമ്മാണം പൂർത്തിയാക്കുകയും ചെയ്തു.
-                  </p>
-                </SpotlightCard>
+          <div className="row align-items-stretch g-4 g-lg-5">
+            {/* Story & History Column */}
+            <div className="col-lg-7">
+              <AnimatedContent direction="horizontal" distance={25} duration={0.65}>
+                <div className="about-history-card h-100 p-4 p-md-5 rounded-4 shadow-sm bg-white position-relative">
+                  <div className="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom" style={{ borderColor: 'rgba(212, 160, 23, 0.25)' }}>
+                    <div className="about-icon-badge">
+                      <i className="fas fa-landmark text-warning fs-4"></i>
+                    </div>
+                    <div>
+                      <span className="text-uppercase fw-bold text-warning letter-spacing-1 small">125+ Years of Sanctity</span>
+                      <h3 className="h4 mb-0 fw-bold text-maroon" style={{ fontFamily: 'var(--font-heading)' }}>
+                        ചരിത്രവും പവിത്രതയും
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="about-narrative text-dark" style={{ fontFamily: 'var(--font-malayalam)', fontSize: '1.02rem', lineHeight: '1.9' }}>
+                    <p className="mb-3 text-start">
+                      ശ്രീനാരായണ ഗുരുദേവന്റെ പാദമുദ്രയാൽ ധന്യമായ, സാധാരണക്കാരും കർഷകരും മാത്രം വസിച്ചിരുന്ന കണ്ണങ്കോട് എന്ന കൊച്ചുഗ്രാമത്തിൽ <span className="fw-bold text-maroon">125 വർഷങ്ങൾക്കു മുമ്പ്</span> ഗുരുദേവ ശിഷ്യനായ ശ്രീ കൊച്ചുനാരായണസ്വാമി എത്തിച്ചേർന്നു. ഇപ്പോൾ ക്ഷേത്രം സ്ഥിതി ചെയ്യുന്ന പുണ്യഭൂമി ക്ഷേത്രനിർമ്മാണത്തിന് അനുയോജ്യമാണെന്ന ഗുരുദേവ കൽപ്പന അദ്ദേഹം ഭക്തജനങ്ങളെ അറിയിച്ചു.
+                    </p>
+
+                    <div className="my-3 p-3 rounded-3" style={{ background: 'rgba(247, 208, 102, 0.12)', borderLeft: '4px solid var(--gold-primary)' }}>
+                      <p className="mb-0 text-start fst-italic">
+                        സ്ഥലത്തിന്റെ ഉടമസ്ഥതയുണ്ടായിരുന്ന <strong className="text-maroon">കിഴക്കേക്കര കുടുംബം</strong> തൃപ്പാദ കൽപ്പന ശിരസാ വഹിക്കുകയും ക്ഷേത്രനിർമ്മാണം ആരംഭിക്കുകയും ചെയ്തു. കൊച്ചുനാരായണസ്വാമികൾ സുബ്രഹ്മണ്യസ്വാമിയുടെ ദിവ്യ പ്രതീകമായ <strong>വേൽ</strong> പ്രതിഷ്ഠിക്കുകയും, അതിനു പിന്നിലായി ഗുരുദേവന്റെ ചിത്രവും കന്നിമൂലയിൽ മഹാഗണപതി ഭഗവാന്റെ വിഗ്രഹവും പ്രതിഷ്ഠിച്ചു.
+                      </p>
+                    </div>
+
+                    <p className="mb-0 text-start">
+                      തുടക്കത്തിൽ ഭക്തർ ഗുരുമന്ദിരം എന്ന സങ്കൽപ്പത്തിലായിരുന്നു ആരാധിച്ചിരുന്നത്. കാലപ്പഴക്കത്താൽ ജീർണ്ണത സംഭവിച്ചപ്പോൾ നടത്തിയ ദേവപ്രശ്ന വിധിപ്രകാരം പരമ്പരാഗത കേരളീയ വാസ്തുവിദ്യയിൽ സുബ്രഹ്മണ്യസ്വാമി ക്ഷേത്രമായി പുനർനിർമ്മിക്കപ്പെട്ടു.
+                    </p>
+                  </div>
+
+                  {/* Highlights Grid */}
+                  <div className="row g-3 mt-4 pt-3 border-top" style={{ borderColor: 'rgba(212, 160, 23, 0.2)' }}>
+                    <div className="col-4 text-center">
+                      <div className="p-2 rounded-3 bg-light">
+                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>125+</div>
+                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>വർഷത്തെ പാരമ്പര്യം</div>
+                      </div>
+                    </div>
+                    <div className="col-4 text-center">
+                      <div className="p-2 rounded-3 bg-light">
+                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>വേൽ</div>
+                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>പ്രധാന പ്രതിഷ്ഠ</div>
+                      </div>
+                    </div>
+                    <div className="col-4 text-center">
+                      <div className="p-2 rounded-3 bg-light">
+                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>തൈപ്പൂയം</div>
+                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>മഹാ മഹോത്സവം</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </AnimatedContent>
             </div>
 
-            <div className="col-lg-6">
-              <AnimatedContent direction="horizontal" reverse={true} distance={30} duration={0.65}>
-                <TiltedCard maxTilt={5}>
-                  <div id="aboutCarouselReact" className="carousel slide carousel-fade shadow-lg rounded-4 overflow-hidden border" style={{ borderColor: 'var(--border-gold)' }} data-bs-ride="carousel" data-bs-interval="3500">
+            {/* Carousel & Temple Photos Column */}
+            <div className="col-lg-5">
+              <AnimatedContent direction="horizontal" reverse={true} distance={25} duration={0.65}>
+                <div className="about-visual-wrapper shadow-lg rounded-4 overflow-hidden position-relative">
+                  <div id="aboutCarouselReact" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
                     <div className="carousel-indicators">
                       {carouselImages.map((_, idx) => (
                         <button
@@ -148,7 +186,7 @@ export default function Home() {
                       <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     </button>
                   </div>
-                </TiltedCard>
+                </div>
               </AnimatedContent>
             </div>
           </div>
