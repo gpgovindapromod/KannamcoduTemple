@@ -16,4 +16,3 @@ export default function ShinyText({ text, disabled = false, speed = 4, className
     </span>
   );
 }
-

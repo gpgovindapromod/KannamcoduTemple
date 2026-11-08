@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DarshanBar from '../components/DarshanBar';
 import SectionHeader from '../components/SectionHeader';
@@ -7,8 +6,6 @@ import GoldenParticles from '../components/GoldenParticles';
 import InteractiveDevotion from '../components/InteractiveDevotion';
 import EventFeatureCard from '../components/EventFeatureCard';
 import ShinyText from '../components/reactbits/ShinyText';
-import BlurText from '../components/reactbits/BlurText';
-import SpotlightCard from '../components/reactbits/SpotlightCard';
 import AnimatedContent from '../components/reactbits/AnimatedContent';
 import { TEMPLE_INFO } from '../utils/constants';
 import { buildTelLink } from '../utils/helpers';
@@ -30,7 +27,7 @@ export default function Home() {
         <GoldenParticles />
         <div className="hero-content">
           <div className="hero-vel-icon">🔱</div>
-          
+
           <div className="hero-subtitle-top">
             <ShinyText text="ॐ ശരവണ ഭവ ॐ" speed={3.5} />
           </div>
@@ -38,22 +35,23 @@ export default function Home() {
           <h1 className="hero-title">
             <span className="d-block hero-title-place">Vettikkavala</span>
             <span className="d-block hero-title-main">Kannamcodu</span>
-            <span className="hero-title-mal d-block mt-2">
-              ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം
-            </span>
+            <span className="hero-title-mal d-block mt-2">ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം</span>
           </h1>
 
           <p className="hero-desc">
-            കൊല്ലം കൊട്ടാരക്കര താലൂക്കിലെ ചരിത്രപ്രസിദ്ധമായ പുണ്യ സങ്കേതം · ശ്രീനാരായണ ഗുരുദേവ ശിഷ്യൻ കൊച്ചുനാരായണസ്വാമികളാൽ വേൽ പ്രതിഷ്ഠിതമായ പുണ്യഭൂമി
+            കൊല്ലം കൊട്ടാരക്കര താലൂക്കിലെ ചരിത്രപ്രസിദ്ധമായ പുണ്യ സങ്കേതം · ശ്രീനാരായണ ഗുരുദേവ
+            ശിഷ്യൻ കൊച്ചുനാരായണസ്വാമികളാൽ വേൽ പ്രതിഷ്ഠിതമായ പുണ്യഭൂമി
           </p>
 
           {/* Quick Contact & Direction Bar */}
           <div className="hero-contact-strip my-3">
             <a href={buildTelLink(TEMPLE_INFO.phones[0].raw)} className="hero-pill-btn">
-              <i className="fas fa-phone-alt text-warning"></i>{TEMPLE_INFO.phones[0].display}
+              <i className="fas fa-phone-alt text-warning"></i>
+              {TEMPLE_INFO.phones[0].display}
             </a>
             <a href={buildTelLink(TEMPLE_INFO.phones[1].raw)} className="hero-pill-btn">
-              <i className="fas fa-phone-alt text-warning"></i>{TEMPLE_INFO.phones[1].display}
+              <i className="fas fa-phone-alt text-warning"></i>
+              {TEMPLE_INFO.phones[1].display}
             </a>
           </div>
 
@@ -72,7 +70,9 @@ export default function Home() {
         </div>
 
         <div className="hero-scroll-indicator">
-          <a href="#about" aria-label="Scroll down"><i className="fas fa-chevron-down"></i></a>
+          <a href="#about" aria-label="Scroll down">
+            <i className="fas fa-chevron-down"></i>
+          </a>
         </div>
       </section>
 
@@ -101,31 +101,66 @@ export default function Home() {
             <div className="col-lg-7">
               <AnimatedContent direction="horizontal" distance={25} duration={0.65}>
                 <div className="about-history-card h-100 p-4 p-md-5 rounded-4 shadow-sm bg-white position-relative">
-                  <div className="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom" style={{ borderColor: 'rgba(212, 160, 23, 0.25)' }}>
+                  <div
+                    className="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom"
+                    style={{ borderColor: 'rgba(212, 160, 23, 0.25)' }}
+                  >
                     <div className="about-icon-badge">
                       <i className="fas fa-landmark text-warning fs-4"></i>
                     </div>
                     <div>
-                      <span className="text-uppercase fw-bold text-warning letter-spacing-1 small">125+ Years of Sanctity</span>
-                      <h3 className="h4 mb-0 fw-bold text-maroon" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <span className="text-uppercase fw-bold text-warning letter-spacing-1 small">
+                        125+ Years of Sanctity
+                      </span>
+                      <h3
+                        className="h4 mb-0 fw-bold text-maroon"
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                      >
                         ചരിത്രവും പവിത്രതയും
                       </h3>
                     </div>
                   </div>
 
-                  <div className="about-narrative text-dark" style={{ fontFamily: 'var(--font-malayalam)', fontSize: '1.02rem', lineHeight: '2', textAlign: 'justify', textJustify: 'inter-word' }}>
+                  <div
+                    className="about-narrative text-dark"
+                    style={{
+                      fontFamily: 'var(--font-malayalam)',
+                      fontSize: '1.02rem',
+                      lineHeight: '2',
+                      textAlign: 'justify',
+                      textJustify: 'inter-word',
+                    }}
+                  >
                     <p className="mb-3">
-                      ശ്രീനാരായണ ഗുരുദേവന്റെ പാദമുദ്രയാൽ ധന്യമായ, സാധാരണക്കാരും കർഷകരും മാത്രം വസിച്ചിരുന്ന കണ്ണങ്കോട് എന്ന കൊച്ചുഗ്രാമത്തിൽ <span className="fw-bold text-maroon">125 വർഷങ്ങൾക്കു മുമ്പ്</span> ഗുരുദേവ ശിഷ്യനായ ശ്രീ കൊച്ചുനാരായണസ്വാമി എത്തിച്ചേർന്നു. ഇപ്പോൾ ക്ഷേത്രം സ്ഥിതി ചെയ്യുന്ന പുണ്യഭൂമി ക്ഷേത്രനിർമ്മാണത്തിന് അനുയോജ്യമാണെന്ന ഗുരുദേവ കൽപ്പന അദ്ദേഹം ഭക്തജനങ്ങളെ അറിയിച്ചു.
+                      ശ്രീനാരായണ ഗുരുദേവന്റെ പാദമുദ്രയാൽ ധന്യമായ, സാധാരണക്കാരും കർഷകരും മാത്രം
+                      വസിച്ചിരുന്ന കണ്ണങ്കോട് എന്ന കൊച്ചുഗ്രാമത്തിൽ{' '}
+                      <span className="fw-bold text-maroon">125 വർഷങ്ങൾക്കു മുമ്പ്</span> ഗുരുദേവ
+                      ശിഷ്യനായ ശ്രീ കൊച്ചുനാരായണസ്വാമി എത്തിച്ചേർന്നു. ഇപ്പോൾ ക്ഷേത്രം സ്ഥിതി
+                      ചെയ്യുന്ന പുണ്യഭൂമി ക്ഷേത്രനിർമ്മാണത്തിന് അനുയോജ്യമാണെന്ന ഗുരുദേവ കൽപ്പന
+                      അദ്ദേഹം ഭക്തജനങ്ങളെ അറിയിച്ചു.
                     </p>
 
-                    <div className="my-3 p-3 rounded-3" style={{ background: 'rgba(247, 208, 102, 0.12)', borderLeft: '4px solid var(--gold-primary)' }}>
+                    <div
+                      className="my-3 p-3 rounded-3"
+                      style={{
+                        background: 'rgba(247, 208, 102, 0.12)',
+                        borderLeft: '4px solid var(--gold-primary)',
+                      }}
+                    >
                       <p className="mb-0 fst-italic">
-                        സ്ഥലത്തിന്റെ ഉടമസ്ഥതയുണ്ടായിരുന്ന <strong className="text-maroon">കിഴക്കേക്കര കുടുംബം</strong> തൃപ്പാദ കൽപ്പന ശിരസാ വഹിക്കുകയും ക്ഷേത്രനിർമ്മാണം ആരംഭിക്കുകയും ചെയ്തു. കൊച്ചുനാരായണസ്വാമികൾ സുബ്രഹ്മണ്യസ്വാമിയുടെ ദിവ്യ പ്രതീകമായ <strong>വേൽ</strong> പ്രതിഷ്ഠിക്കുകയും, അതിനു പിന്നിലായി ഗുരുദേവന്റെ ചിത്രവും കന്നിമൂലയിൽ മഹാഗണപതി ഭഗവാന്റെ വിഗ്രഹവും പ്രതിഷ്ഠിച്ചു.
+                        സ്ഥലത്തിന്റെ ഉടമസ്ഥതയുണ്ടായിരുന്ന{' '}
+                        <strong className="text-maroon">കിഴക്കേക്കര കുടുംബം</strong> തൃപ്പാദ കൽപ്പന
+                        ശിരസാ വഹിക്കുകയും ക്ഷേത്രനിർമ്മാണം ആരംഭിക്കുകയും ചെയ്തു.
+                        കൊച്ചുനാരായണസ്വാമികൾ സുബ്രഹ്മണ്യസ്വാമിയുടെ ദിവ്യ പ്രതീകമായ{' '}
+                        <strong>വേൽ</strong> പ്രതിഷ്ഠിക്കുകയും, അതിനു പിന്നിലായി ഗുരുദേവന്റെ
+                        ചിത്രവും കന്നിമൂലയിൽ മഹാഗണപതി ഭഗവാന്റെ വിഗ്രഹവും പ്രതിഷ്ഠിച്ചു.
                       </p>
                     </div>
 
                     <p className="mb-0">
-                      തുടക്കത്തിൽ ഭക്തർ ഗുരുമന്ദിരം എന്ന സങ്കൽപ്പത്തിലായിരുന്നു ആരാധിച്ചിരുന്നത്. കാലപ്പഴക്കത്താൽ ജീർണ്ണത സംഭവിച്ചപ്പോൾ നടത്തിയ ദേവപ്രശ്ന വിധിപ്രകാരം പരമ്പരാഗത കേരളീയ വാസ്തുവിദ്യയിൽ സുബ്രഹ്മണ്യസ്വാമി ക്ഷേത്രമായി പുനർനിർമ്മിക്കപ്പെട്ടു.
+                      തുടക്കത്തിൽ ഭക്തർ ഗുരുമന്ദിരം എന്ന സങ്കൽപ്പത്തിലായിരുന്നു ആരാധിച്ചിരുന്നത്.
+                      കാലപ്പഴക്കത്താൽ ജീർണ്ണത സംഭവിച്ചപ്പോൾ നടത്തിയ ദേവപ്രശ്ന വിധിപ്രകാരം പരമ്പരാഗത
+                      കേരളീയ വാസ്തുവിദ്യയിൽ സുബ്രഹ്മണ്യസ്വാമി ക്ഷേത്രമായി പുനർനിർമ്മിക്കപ്പെട്ടു.
                     </p>
                   </div>
                 </div>
@@ -136,7 +171,12 @@ export default function Home() {
             <div className="col-lg-5">
               <AnimatedContent direction="horizontal" reverse={true} distance={25} duration={0.65}>
                 <div className="about-visual-wrapper shadow-lg rounded-4 overflow-hidden position-relative">
-                  <div id="aboutCarouselReact" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+                  <div
+                    id="aboutCarouselReact"
+                    className="carousel slide carousel-fade"
+                    data-bs-ride="carousel"
+                    data-bs-interval="3500"
+                  >
                     <div className="carousel-indicators">
                       {carouselImages.map((_, idx) => (
                         <button
@@ -160,10 +200,22 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#aboutCarouselReact" data-bs-slide="prev" aria-label="Previous image">
+                    <button
+                      className="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#aboutCarouselReact"
+                      data-bs-slide="prev"
+                      aria-label="Previous image"
+                    >
                       <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#aboutCarouselReact" data-bs-slide="next" aria-label="Next image">
+                    <button
+                      className="carousel-control-next"
+                      type="button"
+                      data-bs-target="#aboutCarouselReact"
+                      data-bs-slide="next"
+                      aria-label="Next image"
+                    >
                       <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     </button>
                   </div>
@@ -178,9 +230,10 @@ export default function Home() {
       <section
         className="home-festivals-section position-relative"
         style={{
-          background: "linear-gradient(135deg, rgba(30, 10, 4, 0.95) 0%, rgba(95, 18, 6, 0.92) 50%, rgba(30, 10, 4, 0.96) 100%), url('/images/temple/temple-evening.jpg') center/cover fixed",
+          background:
+            "linear-gradient(135deg, rgba(30, 10, 4, 0.95) 0%, rgba(95, 18, 6, 0.92) 50%, rgba(30, 10, 4, 0.96) 100%), url('/images/temple/temple-evening.jpg') center/cover fixed",
           borderTop: '2px solid var(--gold)',
-          borderBottom: '2px solid var(--gold)'
+          borderBottom: '2px solid var(--gold)',
         }}
       >
         <div className="container position-relative py-4" style={{ zIndex: 2 }}>
@@ -235,7 +288,8 @@ export default function Home() {
 
           <div className="text-center mt-4">
             <Link to="/events" className="btn-hero-primary d-inline-block text-decoration-none">
-              <i className="fas fa-calendar-days me-2"></i>View All Events / മുഴുവൻ ഉത്സവങ്ങളും കാണുക
+              <i className="fas fa-calendar-days me-2"></i>View All Events / മുഴുവൻ ഉത്സവങ്ങളും
+              കാണുക
             </Link>
           </div>
         </div>
@@ -254,7 +308,10 @@ export default function Home() {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <AnimatedContent scale={0.97} distance={20}>
-                <div className="video-card bg-dark p-2 rounded-4 shadow-lg overflow-hidden border" style={{ borderColor: 'var(--border-gold)' }}>
+                <div
+                  className="video-card bg-dark p-2 rounded-4 shadow-lg overflow-hidden border"
+                  style={{ borderColor: 'var(--border-gold)' }}
+                >
                   <video
                     className="w-100 rounded-3"
                     controls

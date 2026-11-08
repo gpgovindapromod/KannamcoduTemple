@@ -9,7 +9,7 @@ export default function TiltedCard({
   className = '',
   maxTilt = 8,
   glare = true,
-  style = {}
+  style = {},
 }) {
   const cardRef = useRef(null);
   const [rotateX, setRotateX] = useState(0);
@@ -36,7 +36,7 @@ export default function TiltedCard({
       setGlarePos({
         x: (x / rect.width) * 100,
         y: (y / rect.height) * 100,
-        opacity: 0.22
+        opacity: 0.22,
       });
     }
   };
@@ -56,7 +56,7 @@ export default function TiltedCard({
       style={{
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: 'transform 0.15s ease-out',
-        ...style
+        ...style,
       }}
     >
       {glare && (
@@ -64,7 +64,7 @@ export default function TiltedCard({
           className="tilted-card-glare d-none d-md-block"
           style={{
             opacity: glarePos.opacity,
-            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.45) 0%, transparent 65%)`
+            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.45) 0%, transparent 65%)`,
           }}
         />
       )}

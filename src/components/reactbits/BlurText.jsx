@@ -10,7 +10,7 @@ export default function BlurText({
   delay = 50,
   animateBy = 'words', // 'words' or 'letters'
   direction = 'top', // 'top' or 'bottom'
-  className = ''
+  className = '',
 }) {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
   const ref = useRef(null);
@@ -24,17 +24,21 @@ export default function BlurText({
           initial={{
             opacity: 0,
             filter: 'blur(10px)',
-            y: direction === 'top' ? -15 : 15
+            y: direction === 'top' ? -15 : 15,
           }}
-          animate={isInView ? {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0
-          } : {}}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  filter: 'blur(0px)',
+                  y: 0,
+                }
+              : {}
+          }
           transition={{
             duration: 0.55,
             delay: (index * delay) / 1000,
-            ease: [0.25, 0.46, 0.45, 0.94]
+            ease: [0.25, 0.46, 0.45, 0.94],
           }}
           style={{ display: 'inline-block', whiteSpace: 'normal', marginRight: '0.28em' }}
         >

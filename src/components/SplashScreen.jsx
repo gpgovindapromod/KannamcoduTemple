@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ShinyText from './reactbits/ShinyText';
 import BlurText from './reactbits/BlurText';
 import GoldenParticles from './GoldenParticles';
-import { safeStorage } from '../utils/helpers';
 
 /**
  * Fullscreen Immersive Devotional Splash Screen
@@ -79,12 +78,8 @@ export default function SplashScreen({ onFinish }) {
           <div className="splash-progress-bar"></div>
         </div>
 
-        <p className="splash-welcome-tag">
-          ഭക്തിസാന്ദ്രമായ ദർശനത്തിലേക്ക് സ്വാഗതം
-        </p>
+        <p className="splash-welcome-tag">ഭക്തിസാന്ദ്രമായ ദർശനത്തിലേക്ക് സ്വാഗതം</p>
       </div>
     </div>
   );
 }
-
-

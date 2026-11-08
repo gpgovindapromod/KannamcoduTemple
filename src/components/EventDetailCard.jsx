@@ -12,7 +12,7 @@ export default function EventDetailCard({
   images = [],
   paragraphs = [],
   desc,
-  layout = 'horizontal' // 'horizontal' (row) or 'vertical' (col)
+  layout = 'horizontal', // 'horizontal' (row) or 'vertical' (col)
 }) {
   if (layout === 'vertical') {
     return (
@@ -27,7 +27,7 @@ export default function EventDetailCard({
               height: '240px',
               objectFit: id.includes('chathayam') ? 'contain' : 'cover',
               background: '#4a120b',
-              objectPosition: id === 'uthram' ? 'center 30%' : 'center'
+              objectPosition: id === 'uthram' ? 'center 30%' : 'center',
             }}
           />
         )}
@@ -38,7 +38,7 @@ export default function EventDetailCard({
                 fontFamily: 'var(--font-malayalam)',
                 color: 'var(--dark-brown)',
                 fontSize: '1.3rem',
-                fontWeight: 700
+                fontWeight: 700,
               }}
             >
               {title}
@@ -52,7 +52,7 @@ export default function EventDetailCard({
                 color: 'var(--saffron-dark)',
                 fontSize: '0.84rem',
                 letterSpacing: '0.8px',
-                fontWeight: 600
+                fontWeight: 600,
               }}
             >
               {eng}
@@ -65,7 +65,7 @@ export default function EventDetailCard({
                 lineHeight: '1.85',
                 textAlign: 'justify',
                 color: '#443',
-                fontSize: '0.94rem'
+                fontSize: '0.94rem',
               }}
             >
               {desc}
@@ -89,7 +89,7 @@ export default function EventDetailCard({
               style={{
                 minHeight: '270px',
                 objectFit: id.includes('chathayam') || id.includes('samadhi') ? 'contain' : 'cover',
-                background: '#4a120b'
+                background: '#4a120b',
               }}
             />
           )}
@@ -102,7 +102,7 @@ export default function EventDetailCard({
                 style={{
                   fontFamily: 'var(--font-malayalam)',
                   color: 'var(--dark-brown)',
-                  fontWeight: 700
+                  fontWeight: 700,
                 }}
               >
                 {title}
@@ -116,7 +116,7 @@ export default function EventDetailCard({
                   color: 'var(--saffron-dark)',
                   fontSize: '0.88rem',
                   letterSpacing: '0.8px',
-                  fontWeight: 600
+                  fontWeight: 600,
                 }}
               >
                 {eng}
@@ -130,7 +130,7 @@ export default function EventDetailCard({
                   lineHeight: '1.9',
                   textAlign: 'justify',
                   color: '#443',
-                  fontSize: '0.98rem'
+                  fontSize: '0.98rem',
                 }}
               >
                 {p}

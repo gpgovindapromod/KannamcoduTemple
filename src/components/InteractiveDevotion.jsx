@@ -9,7 +9,7 @@ export default function InteractiveDevotion() {
 
   const offerFlowers = (e) => {
     setFlowerCount((prev) => prev + 1);
-    
+
     // Floral confetti burst
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (rect.left + rect.width / 2) / window.innerWidth;
@@ -21,7 +21,7 @@ export default function InteractiveDevotion() {
       origin: { x, y },
       colors: ['#FF6B00', '#FFD700', '#FF1493', '#FFF8DC', '#FF4500'],
       shapes: ['circle'],
-      scalar: 1.2
+      scalar: 1.2,
     });
   };
 
@@ -57,7 +57,7 @@ export default function InteractiveDevotion() {
       confetti({
         particleCount: 15,
         spread: 35,
-        colors: ['#FFE082', '#FFA000', '#FF6F00']
+        colors: ['#FFE082', '#FFA000', '#FF6F00'],
       });
     }
   };
@@ -68,7 +68,10 @@ export default function InteractiveDevotion() {
         <span className="section-label" style={{ color: 'var(--gold-light)' }}>
           <i className="fas fa-hands-praying me-2"></i>ഭക്തജന സമർപ്പണം · VIRTUAL DEVOTIONAL DARSHAN
         </span>
-        <h3 className="section-title text-white" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem' }}>
+        <h3
+          className="section-title text-white"
+          style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem' }}
+        >
           Interactive Divine Experience
         </h3>
         <p style={{ fontFamily: 'var(--font-malayalam)', color: '#FFE6BD', fontSize: '0.96rem' }}>
@@ -81,7 +84,9 @@ export default function InteractiveDevotion() {
         <div className="col-md-4">
           <div className="devotion-box p-4 rounded-4 text-center h-100">
             <div className="box-icon-div mb-3">🌺</div>
-            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>പുഷ്പാർച്ചന</h5>
+            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
+              പുഷ്പാർച്ചന
+            </h5>
             <p className="small mb-3 text-white-50">Offer sacred blossoms to Lord Murugan</p>
             <button
               onClick={offerFlowers}
@@ -99,10 +104,15 @@ export default function InteractiveDevotion() {
         {/* Temple Bell */}
         <div className="col-md-4">
           <div className="devotion-box p-4 rounded-4 text-center h-100">
-            <div className={`box-icon-div mb-3 ${bellRinging ? 'bell-anim' : ''}`} style={{ fontSize: '2.8rem' }}>
+            <div
+              className={`box-icon-div mb-3 ${bellRinging ? 'bell-anim' : ''}`}
+              style={{ fontSize: '2.8rem' }}
+            >
               🔔
             </div>
-            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>ക്ഷേത്ര മണിനാദം</h5>
+            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
+              ക്ഷേത്ര മണിനാദം
+            </h5>
             <p className="small mb-3 text-white-50">Ring the sacred bell for auspicious darshan</p>
             <button
               onClick={ringBell}
@@ -120,7 +130,9 @@ export default function InteractiveDevotion() {
         <div className="col-md-4">
           <div className="devotion-box p-4 rounded-4 text-center h-100">
             <div className="box-icon-div mb-3">🪔</div>
-            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>ദീപ സമർപ്പണം</h5>
+            <h5 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
+              ദീപ സമർപ്പണം
+            </h5>
             <p className="small mb-2 text-white-50">Light the pancha-deepa lamps</p>
             <div className="d-flex justify-content-center gap-2 my-3">
               {lampsLit.map((isLit, i) => (
@@ -146,7 +158,10 @@ export default function InteractiveDevotion() {
         <div className="d-flex align-items-center gap-3">
           <span className="chant-orb">🕉️</span>
           <div>
-            <div className="fw-bold" style={{ color: '#FFF2CE', fontFamily: 'var(--font-malayalam)' }}>
+            <div
+              className="fw-bold"
+              style={{ color: '#FFF2CE', fontFamily: 'var(--font-malayalam)' }}
+            >
               ശരവണ ഭവ മന്ത്രജപം · SARAVANA BHAVA JAPAM
             </div>
             <div className="small" style={{ color: '#FFE6BD' }}>
@@ -156,7 +171,7 @@ export default function InteractiveDevotion() {
         </div>
         <button
           className="btn btn-outline-light rounded-pill px-4 btn-sm"
-          onClick={() => setMantraChants(prev => prev + 1)}
+          onClick={() => setMantraChants((prev) => prev + 1)}
         >
           <i className="fas fa-plus me-2 text-warning"></i>ജപ സംഖ്യ: {mantraChants}
         </button>
@@ -164,4 +179,3 @@ export default function InteractiveDevotion() {
     </div>
   );
 }
-

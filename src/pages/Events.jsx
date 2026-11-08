@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { EVENTS_DATA } from '../data/templeData';
 import PageHero from '../components/PageHero';
-import DarshanBar from '../components/DarshanBar';
 import SectionHeader from '../components/SectionHeader';
 import EventDetailCard from '../components/EventDetailCard';
 
@@ -13,12 +12,15 @@ export default function Events() {
   useEffect(() => {
     if (location.hash) {
       const hash = location.hash.replace('#', '');
-      if (hash === 'monthly' || ['shasti', 'ayilyam', 'ganapathi-homam', 'uthram', 'chathayam-monthly'].includes(hash)) {
+      if (
+        hash === 'monthly' ||
+        ['shasti', 'ayilyam', 'ganapathi-homam', 'uthram', 'chathayam-monthly'].includes(hash)
+      ) {
         setActiveTab('monthly');
       } else {
         setActiveTab('yearly');
       }
-      
+
       const el = document.getElementById(hash);
       if (el) {
         setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);

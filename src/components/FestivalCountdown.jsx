@@ -6,7 +6,7 @@ export default function FestivalCountdown() {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
   const [expanded, setExpanded] = useState(false);
   const containerRef = useRef(null);
@@ -27,7 +27,7 @@ export default function FestivalCountdown() {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
         });
       }
     };
@@ -65,7 +65,10 @@ export default function FestivalCountdown() {
       {expanded && (
         <div className="countdown-expanded-card shadow-lg animate-fadeInUp">
           <div className="d-flex justify-content-between align-items-center mb-2">
-            <span className="badge bg-warning text-dark px-2 py-1 fw-bold" style={{ fontSize: '0.72rem' }}>
+            <span
+              className="badge bg-warning text-dark px-2 py-1 fw-bold"
+              style={{ fontSize: '0.72rem' }}
+            >
               <i className="fas fa-fire me-1"></i>മഹാ ഉത്സവം
             </span>
             <button
@@ -80,9 +83,7 @@ export default function FestivalCountdown() {
             ></button>
           </div>
 
-          <h6 className="countdown-pop-title mb-1">
-            മഹാ തൈപൂയം മഹോത്സവം
-          </h6>
+          <h6 className="countdown-pop-title mb-1">മഹാ തൈപൂയം മഹോത്സവം</h6>
 
           {/* Prominently Highlight Upcoming Festival Date */}
           <div className="festival-date-highlight my-2">
@@ -90,9 +91,7 @@ export default function FestivalCountdown() {
             <span className="festival-date-text">
               തീയതി: <strong>{targetDateStr}</strong>
             </span>
-            <div className="festival-malayalam-date">
-              (മകരമാസത്തിലെ പൂയം നക്ഷത്രം)
-            </div>
+            <div className="festival-malayalam-date">(മകരമാസത്തിലെ പൂയം നക്ഷത്രം)</div>
           </div>
 
           <p className="countdown-pop-sub mb-3">
@@ -139,7 +138,9 @@ export default function FestivalCountdown() {
       >
         <span className="live-spark"></span>
         <span className="pill-tag">തൈപൂയം:</span>
-        <span className="pill-val">{timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h</span>
+        <span className="pill-val">
+          {timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h
+        </span>
         <i className={`fas fa-chevron-${expanded ? 'down' : 'up'} pill-arrow`}></i>
       </button>
     </div>

@@ -35,7 +35,10 @@ export default function Contact() {
 
           <div className="row g-5">
             <div className="col-lg-5">
-              <div className="map-wrapper mb-4 rounded-4 overflow-hidden shadow-sm border" style={{ borderColor: 'var(--border-gold)' }}>
+              <div
+                className="map-wrapper mb-4 rounded-4 overflow-hidden shadow-sm border"
+                style={{ borderColor: 'var(--border-gold)' }}
+              >
                 <iframe
                   src={TEMPLE_INFO.location.mapsEmbedUrl}
                   allowFullScreen
@@ -47,7 +50,9 @@ export default function Contact() {
               </div>
 
               <div className="contact-info-item">
-                <div className="contact-icon-wrap"><i className="fas fa-map-marker-alt"></i></div>
+                <div className="contact-icon-wrap">
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
                 <div className="contact-info-text">
                   <strong>Address / വിലാസം</strong>
                   {TEMPLE_INFO.location.address}
@@ -55,41 +60,73 @@ export default function Contact() {
               </div>
 
               <div className="contact-info-item">
-                <div className="contact-icon-wrap"><i className="fas fa-phone-alt"></i></div>
+                <div className="contact-icon-wrap">
+                  <i className="fas fa-phone-alt"></i>
+                </div>
                 <div className="contact-info-text">
                   <strong>Phone / ഫോൺ</strong>
-                  <a href={buildTelLink(TEMPLE_INFO.phones[0].raw)} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>{TEMPLE_INFO.phones[0].display}</a><br />
-                  <a href={buildTelLink(TEMPLE_INFO.phones[1].raw)} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>{TEMPLE_INFO.phones[1].display}</a>
+                  <a
+                    href={buildTelLink(TEMPLE_INFO.phones[0].raw)}
+                    style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}
+                  >
+                    {TEMPLE_INFO.phones[0].display}
+                  </a>
+                  <br />
+                  <a
+                    href={buildTelLink(TEMPLE_INFO.phones[1].raw)}
+                    style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}
+                  >
+                    {TEMPLE_INFO.phones[1].display}
+                  </a>
                 </div>
               </div>
 
               <div className="contact-info-item">
-                <div className="contact-icon-wrap"><i className="fas fa-envelope"></i></div>
+                <div className="contact-icon-wrap">
+                  <i className="fas fa-envelope"></i>
+                </div>
                 <div className="contact-info-text">
                   <strong>Email</strong>
-                  <a href={`mailto:${TEMPLE_INFO.email}`} style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>
+                  <a
+                    href={`mailto:${TEMPLE_INFO.email}`}
+                    style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}
+                  >
                     {TEMPLE_INFO.email}
                   </a>
                 </div>
               </div>
 
               <div className="contact-info-item">
-                <div className="contact-icon-wrap"><i className="fas fa-clock"></i></div>
+                <div className="contact-icon-wrap">
+                  <i className="fas fa-clock"></i>
+                </div>
                 <div className="contact-info-text">
                   <strong>Darshan Timings / ദർശന സമയം</strong>
                   <span style={{ fontFamily: 'var(--font-malayalam)' }}>
-                    {TEMPLE_INFO.darshan.morning.start} – {TEMPLE_INFO.darshan.morning.end} &nbsp;|&nbsp; {TEMPLE_INFO.darshan.evening.start} – {TEMPLE_INFO.darshan.evening.end}
+                    {TEMPLE_INFO.darshan.morning.start} – {TEMPLE_INFO.darshan.morning.end}{' '}
+                    &nbsp;|&nbsp; {TEMPLE_INFO.darshan.evening.start} –{' '}
+                    {TEMPLE_INFO.darshan.evening.end}
                   </span>
                 </div>
               </div>
 
               <div className="contact-info-item">
-                <div className="contact-icon-wrap" style={{ background: 'linear-gradient(135deg,#25D366,#128C7E)' }}>
+                <div
+                  className="contact-icon-wrap"
+                  style={{ background: 'linear-gradient(135deg,#25D366,#128C7E)' }}
+                >
                   <i className="fab fa-whatsapp"></i>
                 </div>
                 <div className="contact-info-text">
                   <strong>WhatsApp Helpline</strong>
-                  <a href={buildWhatsAppLink('Namaskaram, I am contacting you from the temple website.')} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}>
+                  <a
+                    href={buildWhatsAppLink(
+                      'Namaskaram, I am contacting you from the temple website.'
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'var(--medium-brown)', textDecoration: 'none' }}
+                  >
                     {TEMPLE_INFO.whatsapp.display}
                   </a>
                 </div>
@@ -97,15 +134,30 @@ export default function Contact() {
             </div>
 
             <div className="col-lg-7">
-              <div className="contact-form-card shadow-sm p-4 p-md-5 rounded-4 bg-white border" style={{ borderColor: 'var(--border-gold)' }}>
-                <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--dark-brown)', marginBottom: '1.5rem', fontSize: '1.15rem' }}>
-                  <i className="fas fa-paper-plane text-warning me-2"></i>Send a Message / സന്ദേശം അയക്കുക
+              <div
+                className="contact-form-card shadow-sm p-4 p-md-5 rounded-4 bg-white border"
+                style={{ borderColor: 'var(--border-gold)' }}
+              >
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: 'var(--dark-brown)',
+                    marginBottom: '1.5rem',
+                    fontSize: '1.15rem',
+                  }}
+                >
+                  <i className="fas fa-paper-plane text-warning me-2"></i>Send a Message / സന്ദേശം
+                  അയക്കുക
                 </h4>
 
                 {submitted ? (
                   <div className="alert alert-success p-4 rounded-3 text-center">
-                    <h5><i className="fas fa-check-circle me-2"></i>നന്ദി! സന്ദേശം ലഭിച്ചു.</h5>
-                    <p className="mb-0">Your message has been sent successfully. We will get back to you shortly.</p>
+                    <h5>
+                      <i className="fas fa-check-circle me-2"></i>നന്ദി! സന്ദേശം ലഭിച്ചു.
+                    </h5>
+                    <p className="mb-0">
+                      Your message has been sent successfully. We will get back to you shortly.
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit}>

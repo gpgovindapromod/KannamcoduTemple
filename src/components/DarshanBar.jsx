@@ -40,9 +40,14 @@ export default function DarshanBar() {
     <div className="darshan-ticker-group">
       <span className="compact-flame">🪔</span>
       <span className="ticker-label">ക്ഷേത്ര ദർശന സമയം (Darshan Timings):</span>
-      <span className="ticker-item"><i className="fas fa-sun text-warning me-1"></i>രാവിലെ <strong>5:30 AM – 10:00 AM</strong></span>
+      <span className="ticker-item">
+        <i className="fas fa-sun text-warning me-1"></i>രാവിലെ <strong>5:30 AM – 10:00 AM</strong>
+      </span>
       <span className="ticker-dot">✦</span>
-      <span className="ticker-item"><i className="fas fa-moon text-warning me-1"></i>വൈകുന്നേരം <strong>5:00 PM – 7:30 PM</strong></span>
+      <span className="ticker-item">
+        <i className="fas fa-moon text-warning me-1"></i>വൈകുന്നേരം{' '}
+        <strong>5:00 PM – 7:30 PM</strong>
+      </span>
       <span className="ticker-dot">✦</span>
       <span className="ticker-holy">ॐ ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി നമഃ</span>
       <span className="ticker-dot">✦</span>

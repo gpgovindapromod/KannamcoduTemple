@@ -32,7 +32,7 @@ export default function Pooja() {
     }
 
     if (search.trim()) {
-      return list.filter(item => item.toLowerCase().includes(search.toLowerCase().trim()));
+      return list.filter((item) => item.toLowerCase().includes(search.toLowerCase().trim()));
     }
     return list;
   };
@@ -51,7 +51,6 @@ export default function Pooja() {
 
       <section className="py-5" style={{ background: 'var(--cream)' }}>
         <div className="container">
-
           {/* Section 1: Daily Pooja Chart (Structured Table) */}
           <div id="pooja-chart" className="mb-5">
             <SectionHeader
@@ -62,19 +61,33 @@ export default function Pooja() {
 
             <div className="row g-4 mb-5">
               <div className="col-lg-6">
-                <h5 className="mb-3 text-uppercase" style={{ fontFamily: 'var(--font-heading)', color: 'var(--saffron)', letterSpacing: '1px', fontSize: '0.9rem' }}>
+                <h5
+                  className="mb-3 text-uppercase"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: 'var(--saffron)',
+                    letterSpacing: '1px',
+                    fontSize: '0.9rem',
+                  }}
+                >
                   <i className="fas fa-sun me-2 text-warning"></i>Morning Poojas / രാവിലെ പൂജകൾ
                 </h5>
                 <div className="pooja-table shadow-sm">
                   <table>
                     <thead>
-                      <tr><th>സമയം</th><th>പൂജ</th><th>വിവരണം</th></tr>
+                      <tr>
+                        <th>സമയം</th>
+                        <th>പൂജ</th>
+                        <th>വിവരണം</th>
+                      </tr>
                     </thead>
                     <tbody>
                       {POOJA_TIMETABLE.morning.map((p, idx) => (
                         <tr key={idx}>
                           <td className="time fw-bold text-danger">{p.time}</td>
-                          <td><strong className="text-dark">{p.name}</strong></td>
+                          <td>
+                            <strong className="text-dark">{p.name}</strong>
+                          </td>
                           <td>{p.desc}</td>
                         </tr>
                       ))}
@@ -84,19 +97,33 @@ export default function Pooja() {
               </div>
 
               <div className="col-lg-6">
-                <h5 className="mb-3 text-uppercase" style={{ fontFamily: 'var(--font-heading)', color: 'var(--saffron)', letterSpacing: '1px', fontSize: '0.9rem' }}>
+                <h5
+                  className="mb-3 text-uppercase"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: 'var(--saffron)',
+                    letterSpacing: '1px',
+                    fontSize: '0.9rem',
+                  }}
+                >
                   <i className="fas fa-moon me-2 text-warning"></i>Evening Poojas / വൈകുന്നേര പൂജകൾ
                 </h5>
                 <div className="pooja-table shadow-sm">
                   <table>
                     <thead>
-                      <tr><th>സമയം</th><th>പൂജ</th><th>വിവരണം</th></tr>
+                      <tr>
+                        <th>സമയം</th>
+                        <th>പൂജ</th>
+                        <th>വിവരണം</th>
+                      </tr>
                     </thead>
                     <tbody>
                       {POOJA_TIMETABLE.evening.map((p, idx) => (
                         <tr key={idx}>
                           <td className="time fw-bold text-danger">{p.time}</td>
-                          <td><strong className="text-dark">{p.name}</strong></td>
+                          <td>
+                            <strong className="text-dark">{p.name}</strong>
+                          </td>
                           <td>{p.desc}</td>
                         </tr>
                       ))}
@@ -155,7 +182,10 @@ export default function Pooja() {
             <div className="row g-3">
               {displayedList.map((item, index) => (
                 <div key={index} className="col-sm-6 col-md-4 col-lg-3">
-                  <SpotlightCard className="pooja-item-card h-100" spotlightColor="rgba(212, 160, 23, 0.15)">
+                  <SpotlightCard
+                    className="pooja-item-card h-100"
+                    spotlightColor="rgba(212, 160, 23, 0.15)"
+                  >
                     <div className="pooja-num">{index + 1}</div>
                     <div className="pooja-name">{item}</div>
                   </SpotlightCard>
@@ -163,12 +193,23 @@ export default function Pooja() {
               ))}
             </div>
 
-            <div className="mt-5 p-4 text-center rounded-4 shadow-sm" style={{ background: 'white', border: '2px dashed var(--gold)' }}>
+            <div
+              className="mt-5 p-4 text-center rounded-4 shadow-sm"
+              style={{ background: 'white', border: '2px dashed var(--gold)' }}
+            >
               <h5 style={{ fontFamily: 'var(--font-heading)', color: 'var(--dark-brown)' }}>
                 <i className="fas fa-receipt me-2 text-warning"></i>വഴിപാടുകൾ ബുക്ക് ചെയ്യുന്നതിന്
               </h5>
-              <p style={{ fontFamily: 'var(--font-malayalam)', color: 'var(--medium-brown)', lineHeight: '1.9', marginBottom: '1.2rem' }}>
-                പ്രത്യേക പൂജകൾ, ചോറൂൺ, വിവാഹം, തുലാഭാരം, ഉണ്ണിയപ്പം വഴിപാട് തുടങ്ങിയവ മുൻകൂട്ടി ബുക്ക് ചെയ്യുന്നതിനായി ക്ഷേത്ര ഓഫീസുമായി ബന്ധപ്പെടുക.
+              <p
+                style={{
+                  fontFamily: 'var(--font-malayalam)',
+                  color: 'var(--medium-brown)',
+                  lineHeight: '1.9',
+                  marginBottom: '1.2rem',
+                }}
+              >
+                പ്രത്യേക പൂജകൾ, ചോറൂൺ, വിവാഹം, തുലാഭാരം, ഉണ്ണിയപ്പം വഴിപാട് തുടങ്ങിയവ മുൻകൂട്ടി
+                ബുക്ക് ചെയ്യുന്നതിനായി ക്ഷേത്ര ഓഫീസുമായി ബന്ധപ്പെടുക.
               </p>
               <div className="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="tel:+919074439789" className="btn-temple btn btn-lg text-decoration-none">
@@ -180,7 +221,6 @@ export default function Pooja() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </>

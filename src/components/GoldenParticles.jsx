@@ -24,7 +24,7 @@ export default function GoldenParticles() {
       speedY: -(Math.random() * 0.7 + 0.2),
       speedX: (Math.random() - 0.5) * 0.4,
       opacity: Math.random() * 0.7 + 0.2,
-      pulse: Math.random() * 0.04 + 0.01
+      pulse: Math.random() * 0.04 + 0.01,
     }));
 
     const render = () => {
@@ -73,9 +73,8 @@ export default function GoldenParticles() {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-        zIndex: 1
+        zIndex: 1,
       }}
     />
   );
 }
-

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
@@ -54,16 +54,26 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={`collapse navbar-collapse justify-content-end ${navExpanded ? 'show' : ''}`} id="navbarNav">
+        <div
+          className={`collapse navbar-collapse justify-content-end ${navExpanded ? 'show' : ''}`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav align-items-lg-center gap-lg-1">
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/')}`} to="/" onClick={() => setNavExpanded(false)}>
+              <Link
+                className={`nav-link ${isActive('/')}`}
+                to="/"
+                onClick={() => setNavExpanded(false)}
+              >
                 <i className="fas fa-home me-2 d-lg-none text-warning"></i>Home
               </Link>
             </li>
 
             {/* Controlled Events Dropdown */}
-            <li className={`nav-item dropdown ${eventsDropdownOpen ? 'show' : ''}`} ref={eventsDropdownRef}>
+            <li
+              className={`nav-item dropdown ${eventsDropdownOpen ? 'show' : ''}`}
+              ref={eventsDropdownRef}
+            >
               <a
                 className={`nav-link dropdown-toggle ${isActive('/events')}`}
                 href="#events"
@@ -87,7 +97,8 @@ export default function Navbar() {
                       setNavExpanded(false);
                     }}
                   >
-                    <i className="fas fa-star me-2 text-warning"></i>Yearly Events / വാർഷിക ഉത്സവങ്ങൾ
+                    <i className="fas fa-star me-2 text-warning"></i>Yearly Events / വാർഷിക
+                    ഉത്സവങ്ങൾ
                   </Link>
                 </li>
                 <li>
@@ -99,20 +110,28 @@ export default function Navbar() {
                       setNavExpanded(false);
                     }}
                   >
-                    <i className="fas fa-calendar-days me-2 text-warning"></i>Monthly Events / മാസ പൂജകൾ
+                    <i className="fas fa-calendar-days me-2 text-warning"></i>Monthly Events / മാസ
+                    പൂജകൾ
                   </Link>
                 </li>
               </ul>
             </li>
 
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/committee')}`} to="/committee" onClick={() => setNavExpanded(false)}>
+              <Link
+                className={`nav-link ${isActive('/committee')}`}
+                to="/committee"
+                onClick={() => setNavExpanded(false)}
+              >
                 <i className="fas fa-users me-2 d-lg-none text-warning"></i>Committee Members
               </Link>
             </li>
 
             {/* Controlled Pooja & Vazhipadu Dropdown */}
-            <li className={`nav-item dropdown ${poojaDropdownOpen ? 'show' : ''}`} ref={poojaDropdownRef}>
+            <li
+              className={`nav-item dropdown ${poojaDropdownOpen ? 'show' : ''}`}
+              ref={poojaDropdownRef}
+            >
               <a
                 className={`nav-link dropdown-toggle ${isActive('/pooja')}`}
                 href="#pooja"
@@ -148,19 +167,28 @@ export default function Navbar() {
                       setNavExpanded(false);
                     }}
                   >
-                    <i className="fas fa-hand-holding-heart me-2 text-warning"></i>Vazhipadu List / വഴിപാട് വിവരങ്ങൾ
+                    <i className="fas fa-hand-holding-heart me-2 text-warning"></i>Vazhipadu List /
+                    വഴിപാട് വിവരങ്ങൾ
                   </Link>
                 </li>
               </ul>
             </li>
 
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/gallery')}`} to="/gallery" onClick={() => setNavExpanded(false)}>
+              <Link
+                className={`nav-link ${isActive('/gallery')}`}
+                to="/gallery"
+                onClick={() => setNavExpanded(false)}
+              >
                 <i className="fas fa-images me-2 d-lg-none text-warning"></i>Gallery
               </Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/contact')}`} to="/contact" onClick={() => setNavExpanded(false)}>
+              <Link
+                className={`nav-link ${isActive('/contact')}`}
+                to="/contact"
+                onClick={() => setNavExpanded(false)}
+              >
                 <i className="fas fa-envelope me-2 d-lg-none text-warning"></i>Contact Us
               </Link>
             </li>

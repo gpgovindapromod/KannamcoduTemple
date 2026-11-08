@@ -6,8 +6,8 @@ import { TEMPLE_INFO } from './constants';
 
 /**
  * Creates an authorized WhatsApp click-to-chat URL with safely escaped message body.
- * @param {string} message 
- * @param {string} phone 
+ * @param {string} message
+ * @param {string} phone
  * @returns {string}
  */
 export function buildWhatsAppLink(message, phone = TEMPLE_INFO.whatsapp.raw) {
@@ -18,7 +18,7 @@ export function buildWhatsAppLink(message, phone = TEMPLE_INFO.whatsapp.raw) {
 
 /**
  * Normalizes and formats telephone links
- * @param {string} phone 
+ * @param {string} phone
  * @returns {string}
  */
 export function buildTelLink(phone) {
@@ -55,6 +55,5 @@ export const safeStorage = {
     } catch {
       // Ignore
     }
-  }
+  },
 };
-

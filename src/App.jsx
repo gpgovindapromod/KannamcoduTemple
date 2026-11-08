@@ -13,6 +13,7 @@ const Committee = lazy(() => import('./pages/Committee'));
 const Pooja = lazy(() => import('./pages/Pooja'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -28,7 +29,10 @@ function ScrollToTop() {
 
 function PageFallback() {
   return (
-    <div className="d-flex justify-content-center align-items-center py-5" style={{ minHeight: '50vh' }}>
+    <div
+      className="d-flex justify-content-center align-items-center py-5"
+      style={{ minHeight: '50vh' }}
+    >
       <div className="spinner-border text-warning" role="status">
         <span className="visually-hidden">Loading...</span>
       </div>
@@ -62,6 +66,7 @@ export default function App() {
               <Route path="/pooja" element={<Pooja />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
           </Suspense>
         </main>

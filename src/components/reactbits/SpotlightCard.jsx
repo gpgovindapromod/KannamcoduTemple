@@ -8,7 +8,7 @@ export default function SpotlightCard({
   children,
   className = '',
   spotlightColor = 'rgba(247, 208, 102, 0.18)',
-  style = {}
+  style = {},
 }) {
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -36,13 +36,15 @@ export default function SpotlightCard({
         className="spotlight-layer"
         style={{
           opacity,
-          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`
+          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`,
         }}
       />
-      <div className="position-relative d-flex align-items-center w-100" style={{ zIndex: 2, gap: 'inherit' }}>
+      <div
+        className="position-relative d-flex align-items-center w-100"
+        style={{ zIndex: 2, gap: 'inherit' }}
+      >
         {children}
       </div>
     </div>
   );
 }
-

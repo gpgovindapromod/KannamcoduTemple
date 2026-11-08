@@ -13,7 +13,7 @@ export default function AnimatedContent({
   duration = 0.65,
   delay = 0,
   scale = 1,
-  className = ''
+  className = '',
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
@@ -28,18 +28,22 @@ export default function AnimatedContent({
         opacity: 0,
         [axis]: offset,
         scale: scale !== 1 ? scale : 0.98,
-        filter: 'blur(6px)'
+        filter: 'blur(6px)',
       }}
-      animate={isInView ? {
-        opacity: 1,
-        [axis]: 0,
-        scale: 1,
-        filter: 'blur(0px)'
-      } : {}}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              [axis]: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+            }
+          : {}
+      }
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1]
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >
@@ -47,4 +51,3 @@ export default function AnimatedContent({
     </motion.div>
   );
 }
-

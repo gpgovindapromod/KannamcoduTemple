@@ -6,21 +6,49 @@ export default function GalleryGrid({ limit = 0, showFilters = true }) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxImg, setLightboxImg] = useState(null);
 
-  const items = activeFilter === 'all'
-    ? (limit > 0 ? GALLERY_DATA.slice(0, limit) : GALLERY_DATA)
-    : (limit > 0
-        ? GALLERY_DATA.filter(item => item.category === activeFilter).slice(0, limit)
-        : GALLERY_DATA.filter(item => item.category === activeFilter));
+  const items =
+    activeFilter === 'all'
+      ? limit > 0
+        ? GALLERY_DATA.slice(0, limit)
+        : GALLERY_DATA
+      : limit > 0
+        ? GALLERY_DATA.filter((item) => item.category === activeFilter).slice(0, limit)
+        : GALLERY_DATA.filter((item) => item.category === activeFilter);
 
   return (
     <>
       {showFilters && (
         <div className="gallery-filters">
-          <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>All Photos</button>
-          <button className={`filter-btn ${activeFilter === 'vel-kavadi' ? 'active' : ''}`} onClick={() => setActiveFilter('vel-kavadi')}>Vel Kavadi</button>
-          <button className={`filter-btn ${activeFilter === 'manj-neerattu' ? 'active' : ''}`} onClick={() => setActiveFilter('manj-neerattu')}>Manj Neerattu</button>
-          <button className={`filter-btn ${activeFilter === 'agni-kavadi' ? 'active' : ''}`} onClick={() => setActiveFilter('agni-kavadi')}>Agni Kavadi</button>
-          <button className={`filter-btn ${activeFilter === 'temple' ? 'active' : ''}`} onClick={() => setActiveFilter('temple')}>Temple Views</button>
+          <button
+            className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('all')}
+          >
+            All Photos
+          </button>
+          <button
+            className={`filter-btn ${activeFilter === 'vel-kavadi' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('vel-kavadi')}
+          >
+            Vel Kavadi
+          </button>
+          <button
+            className={`filter-btn ${activeFilter === 'manj-neerattu' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('manj-neerattu')}
+          >
+            Manj Neerattu
+          </button>
+          <button
+            className={`filter-btn ${activeFilter === 'agni-kavadi' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('agni-kavadi')}
+          >
+            Agni Kavadi
+          </button>
+          <button
+            className={`filter-btn ${activeFilter === 'temple' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('temple')}
+          >
+            Temple Views
+          </button>
         </div>
       )}
 
@@ -47,4 +75,3 @@ export default function GalleryGrid({ limit = 0, showFilters = true }) {
     </>
   );
 }
-

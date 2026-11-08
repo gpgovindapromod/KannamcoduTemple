@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      linting-and-testing:
+        patterns:
+          - "eslint*"
+          - "prettier"
+          - "@playwright/*"
+          - "knip"
+          - "jscpd"
+

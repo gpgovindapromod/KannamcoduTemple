@@ -1,0 +1,46 @@
+name: Quality Gates & Continuous Verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    name: Code Quality, Security, and Production Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies (clean reproducible)
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check code formatting (Prettier)
+        run: npm run format:check
+
+      - name: Duplicate Code Analysis (jscpd)
+        run: npm run duplicate:check
+
+      - name: Unused Code & Dependency Audit (Knip)
+        run: npm run unused:check || echo "Knip detected potential optimizations"
+
+      - name: Production Build
+        run: npm run build
+
+      - name: Verify build artifacts exist
+        run: |
+          test -f dist/index.html || exit 1
+          test -d dist/assets || exit 1
+

@@ -12,7 +12,7 @@ export default function EventFeatureCard({
   titleEng,
   desc,
   badgeText,
-  to = '/events'
+  to = '/events',
 }) {
   return (
     <SpotlightCard className="h-100 rounded-4" spotlightColor="rgba(255, 183, 3, 0.18)">

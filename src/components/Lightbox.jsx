@@ -15,4 +15,3 @@ export default function Lightbox({ image, onClose }) {
     </div>
   );
 }
-

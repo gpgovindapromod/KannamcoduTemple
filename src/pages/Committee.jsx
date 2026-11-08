@@ -20,7 +20,6 @@ export default function Committee() {
 
       <section className="committee-section py-5" id="team">
         <div className="container">
-
           {/* Section Header */}
           <SectionHeader
             label="Leadership & Administration"
@@ -68,9 +67,15 @@ export default function Committee() {
 
           {/* Spiritual Guide / Tantri */}
           {spiritualLeader && (
-            <div className="mt-5 pt-4 border-top" style={{ borderColor: 'rgba(212, 160, 23, 0.3)' }}>
+            <div
+              className="mt-5 pt-4 border-top"
+              style={{ borderColor: 'rgba(212, 160, 23, 0.3)' }}
+            >
               <div className="text-center mb-4">
-                <h3 className="h3 fw-bold text-maroon" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h3
+                  className="h3 fw-bold text-maroon"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                >
                   ക്ഷേത്രം തന്ത്രി
                 </h3>
                 <p className="text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>
@@ -92,7 +97,6 @@ export default function Committee() {
               </div>
             </div>
           )}
-
         </div>
       </section>
     </>
