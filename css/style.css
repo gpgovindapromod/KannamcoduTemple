@@ -817,13 +817,22 @@ body {
 .pooja-item-card {
   background: white;
   border-radius: 12px;
-  padding: 1rem 1.2rem;
-  display: flex;
-  align-items: center;
+  padding: 0.85rem 1.1rem;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
   gap: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border-gold);
   transition: all 0.25s ease;
+}
+
+.pooja-item-card > div:last-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px;
+  width: 100%;
 }
 
 .pooja-item-card:hover {

@@ -39,7 +39,7 @@ export default function SpotlightCard({
           background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`
         }}
       />
-      <div className="position-relative" style={{ zIndex: 2 }}>
+      <div className="position-relative d-flex align-items-center w-100" style={{ zIndex: 2, gap: 'inherit' }}>
         {children}
       </div>
     </div>
