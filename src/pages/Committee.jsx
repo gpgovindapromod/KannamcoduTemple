@@ -18,76 +18,80 @@ export default function Committee() {
 
       <DarshanBar />
 
-      <section className="committee-section py-5" style={{ background: 'var(--cream)' }}>
+      <section className="committee-section py-5" id="team">
         <div className="container">
 
-          {/* Spiritual Leader / Tantri */}
+          {/* Section Header */}
+          <SectionHeader
+            label="Leadership & Administration"
+            title="Committee Members"
+            titleMal="ഭരണസമിതി അംഗങ്ങൾ"
+            subtitle="Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple Committee Members"
+          />
+
+          {/* Top Row: Executive Officers (President, Vice President, Secretary) */}
+          <div className="row g-4 justify-content-center mb-5 first-row">
+            {executives.slice(0, 3).map((exec) => (
+              <div key={exec.id} className="col-lg-4 col-md-6 col-sm-10">
+                <MemberCard
+                  name={exec.name}
+                  role={exec.role}
+                  img={exec.img}
+                  phone={exec.phone}
+                  highlight={true}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Second Section: Council & Committee Members */}
+          <div className="mt-4 mb-4 text-center">
+            <h3 className="h4 fw-bold text-maroon" style={{ fontFamily: 'var(--font-heading)' }}>
+              സമിതി അംഗങ്ങൾ (Council Members)
+            </h3>
+            <div className="section-divider"></div>
+          </div>
+
+          <div className="row g-4 justify-content-center mb-5">
+            {/* Liju V (Union Rep) + All General Committee Members */}
+            {[executives[3], ...members].map((member) => (
+              <div key={member.id} className="col-lg-3 col-md-6 col-sm-10">
+                <MemberCard
+                  name={member.name}
+                  role={member.role}
+                  img={member.img}
+                  phone={member.phone}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Spiritual Guide / Tantri */}
           {spiritualLeader && (
-            <div className="mb-5">
-              <SectionHeader
-                label="Spiritual Guide"
-                title="ക്ഷേത്രം തന്ത്രി"
-                titleMal="Temple Tantri"
-              />
+            <div className="mt-5 pt-4 border-top" style={{ borderColor: 'rgba(212, 160, 23, 0.3)' }}>
+              <div className="text-center mb-4">
+                <h3 className="h3 fw-bold text-maroon" style={{ fontFamily: 'var(--font-heading)' }}>
+                  ക്ഷേത്രം തന്ത്രി
+                </h3>
+                <p className="text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>
+                  ആദ്ധ്യാത്മിക മാർഗ്ഗദർശി
+                </p>
+                <div className="section-divider"></div>
+              </div>
 
               <div className="row justify-content-center">
-                <div className="col-md-6 col-lg-4">
+                <div className="col-lg-4 col-md-6 col-sm-10">
                   <MemberCard
                     name={spiritualLeader.name}
                     role={spiritualLeader.role}
                     img={spiritualLeader.img}
-                    avatarSize="130px"
+                    phone={spiritualLeader.phone}
+                    highlight={true}
                   />
                 </div>
               </div>
             </div>
           )}
-
-          {/* Executive Managing Committee */}
-          <div className="mt-5 mb-5">
-            <SectionHeader
-              label="Executive Body"
-              title="Managing Committee"
-              titleMal="കാര്യനിർവ്വഹണ സമിതി"
-            />
-
-            <div className="row g-4">
-              {executives.map(member => (
-                <div key={member.id} className="col-sm-6 col-lg-3">
-                  <MemberCard
-                    name={member.name}
-                    role={member.role}
-                    img={member.img}
-                    phone={member.phone}
-                    avatarSize="110px"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* General Committee Members */}
-          <div className="mt-5">
-            <SectionHeader
-              label="Active Council"
-              title="Council Members"
-              titleMal="സമിതി അംഗങ്ങൾ"
-            />
-
-            <div className="row g-4">
-              {members.map(member => (
-                <div key={member.id} className="col-sm-6 col-md-4 col-lg-3">
-                  <MemberCard
-                    name={member.name}
-                    role={member.role}
-                    img={member.img}
-                    phone={member.phone}
-                    avatarSize="95px"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
 
         </div>
       </section>
