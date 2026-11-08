@@ -34,11 +34,10 @@ export default function Home() {
           </div>
 
           <h1 className="hero-title">
-            <span className="d-block">
-              <BlurText text="Vettikkavala Kannamcodu" delay={45} animateBy="words" direction="top" />
-            </span>
+            <span className="d-block hero-title-place">Vettikkavala</span>
+            <span className="d-block hero-title-main">Kannamcodu</span>
             <span className="hero-title-mal d-block mt-2">
-              <BlurText text="ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം" delay={50} animateBy="words" direction="bottom" />
+              ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം
             </span>
           </h1>
 
@@ -46,24 +45,26 @@ export default function Home() {
             കൊല്ലം കൊട്ടാരക്കര താലൂക്കിലെ ചരിത്രപ്രസിദ്ധമായ പുണ്യ സങ്കേതം · ശ്രീനാരായണ ഗുരുദേവ ശിഷ്യൻ കൊച്ചുനാരായണസ്വാമികളാൽ വേൽ പ്രതിഷ്ഠിതമായ പുണ്യഭൂമി
           </p>
 
-          <div className="d-flex justify-content-center gap-3 flex-wrap my-4">
-            <a href="tel:+919074439789" className="hero-phone-btn">
-              <i className="fas fa-phone-alt"></i>+91 90744 39789
+          {/* Quick Contact & Direction Bar */}
+          <div className="hero-contact-strip my-3">
+            <a href="tel:+919074439789" className="hero-pill-btn">
+              <i className="fas fa-phone-alt text-warning"></i>+91 90744 39789
             </a>
-            <a href="tel:+919567691538" className="hero-phone-btn">
-              <i className="fas fa-phone-alt"></i>+91 95676 91538
+            <a href="tel:+919567691538" className="hero-pill-btn">
+              <i className="fas fa-phone-alt text-warning"></i>+91 95676 91538
             </a>
           </div>
 
+          {/* Main Action Buttons */}
           <div className="hero-actions">
             <a href="#about" className="btn-hero-primary">
-              <i className="fas fa-place-of-worship me-2"></i>ക്ഷേത്ര ചരിത്രം
+              <i className="fas fa-landmark me-2"></i>ക്ഷേത്ര ചരിത്രം
             </a>
             <Link to="/pooja" className="btn-hero-secondary">
-              <i className="fas fa-list-check me-2"></i>വഴിപാട് വിവരങ്ങൾ
+              <i className="fas fa-hand-holding-heart me-2"></i>വഴിപാടുകൾ
             </Link>
             <Link to="/events" className="btn-hero-secondary">
-              <i className="fas fa-calendar-alt me-2"></i>ഉത്സവങ്ങൾ
+              <i className="fas fa-calendar-star me-2"></i>ഉത്സവങ്ങൾ
             </Link>
           </div>
         </div>
