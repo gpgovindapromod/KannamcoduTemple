@@ -110,42 +110,20 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="about-narrative text-dark" style={{ fontFamily: 'var(--font-malayalam)', fontSize: '1.02rem', lineHeight: '1.9' }}>
-                    <p className="mb-3 text-start">
+                  <div className="about-narrative text-dark" style={{ fontFamily: 'var(--font-malayalam)', fontSize: '1.02rem', lineHeight: '2', textAlign: 'justify', textJustify: 'inter-word' }}>
+                    <p className="mb-3">
                       ശ്രീനാരായണ ഗുരുദേവന്റെ പാദമുദ്രയാൽ ധന്യമായ, സാധാരണക്കാരും കർഷകരും മാത്രം വസിച്ചിരുന്ന കണ്ണങ്കോട് എന്ന കൊച്ചുഗ്രാമത്തിൽ <span className="fw-bold text-maroon">125 വർഷങ്ങൾക്കു മുമ്പ്</span> ഗുരുദേവ ശിഷ്യനായ ശ്രീ കൊച്ചുനാരായണസ്വാമി എത്തിച്ചേർന്നു. ഇപ്പോൾ ക്ഷേത്രം സ്ഥിതി ചെയ്യുന്ന പുണ്യഭൂമി ക്ഷേത്രനിർമ്മാണത്തിന് അനുയോജ്യമാണെന്ന ഗുരുദേവ കൽപ്പന അദ്ദേഹം ഭക്തജനങ്ങളെ അറിയിച്ചു.
                     </p>
 
                     <div className="my-3 p-3 rounded-3" style={{ background: 'rgba(247, 208, 102, 0.12)', borderLeft: '4px solid var(--gold-primary)' }}>
-                      <p className="mb-0 text-start fst-italic">
+                      <p className="mb-0 fst-italic">
                         സ്ഥലത്തിന്റെ ഉടമസ്ഥതയുണ്ടായിരുന്ന <strong className="text-maroon">കിഴക്കേക്കര കുടുംബം</strong> തൃപ്പാദ കൽപ്പന ശിരസാ വഹിക്കുകയും ക്ഷേത്രനിർമ്മാണം ആരംഭിക്കുകയും ചെയ്തു. കൊച്ചുനാരായണസ്വാമികൾ സുബ്രഹ്മണ്യസ്വാമിയുടെ ദിവ്യ പ്രതീകമായ <strong>വേൽ</strong> പ്രതിഷ്ഠിക്കുകയും, അതിനു പിന്നിലായി ഗുരുദേവന്റെ ചിത്രവും കന്നിമൂലയിൽ മഹാഗണപതി ഭഗവാന്റെ വിഗ്രഹവും പ്രതിഷ്ഠിച്ചു.
                       </p>
                     </div>
 
-                    <p className="mb-0 text-start">
+                    <p className="mb-0">
                       തുടക്കത്തിൽ ഭക്തർ ഗുരുമന്ദിരം എന്ന സങ്കൽപ്പത്തിലായിരുന്നു ആരാധിച്ചിരുന്നത്. കാലപ്പഴക്കത്താൽ ജീർണ്ണത സംഭവിച്ചപ്പോൾ നടത്തിയ ദേവപ്രശ്ന വിധിപ്രകാരം പരമ്പരാഗത കേരളീയ വാസ്തുവിദ്യയിൽ സുബ്രഹ്മണ്യസ്വാമി ക്ഷേത്രമായി പുനർനിർമ്മിക്കപ്പെട്ടു.
                     </p>
-                  </div>
-
-                  {/* Highlights Grid */}
-                  <div className="row g-3 mt-4 pt-3 border-top" style={{ borderColor: 'rgba(212, 160, 23, 0.2)' }}>
-                    <div className="col-4 text-center">
-                      <div className="p-2 rounded-3 bg-light">
-                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>125+</div>
-                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>വർഷത്തെ പാരമ്പര്യം</div>
-                      </div>
-                    </div>
-                    <div className="col-4 text-center">
-                      <div className="p-2 rounded-3 bg-light">
-                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>വേൽ</div>
-                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>പ്രധാന പ്രതിഷ്ഠ</div>
-                      </div>
-                    </div>
-                    <div className="col-4 text-center">
-                      <div className="p-2 rounded-3 bg-light">
-                        <div className="fw-bold fs-4 text-maroon" style={{ fontFamily: 'var(--font-display)' }}>തൈപ്പൂയം</div>
-                        <div className="small text-muted" style={{ fontFamily: 'var(--font-malayalam)' }}>മഹാ മഹോത്സവം</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </AnimatedContent>
