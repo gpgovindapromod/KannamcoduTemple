@@ -30,12 +30,19 @@ export default function SplashScreen({ onFinish }) {
 
   return (
     <div className={`devotional-splash-screen ${fading ? 'splash-fade-out' : ''}`}>
+      {/* Authentic Temple Silhouette / Background */}
+      <div className="splash-bg-backdrop"></div>
       <GoldenParticles />
 
       <div className="splash-content text-center">
-        {/* Sacred Vel Icon with Divine Pulse */}
-        <div className="splash-vel-symbol">
-          🔱
+        {/* Temple Emblem Portrait with Golden Ring */}
+        <div className="splash-temple-avatar mx-auto mb-3">
+          <img
+            src="/images/intro.jpg"
+            alt="Kannamcodu Temple"
+            className="splash-temple-img"
+          />
+          <div className="splash-avatar-vel">🔱</div>
         </div>
 
         {/* Sacred Mantra with React Bits ShinyText */}
@@ -74,3 +81,4 @@ export default function SplashScreen({ onFinish }) {
     </div>
   );
 }
+

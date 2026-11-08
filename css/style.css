@@ -40,13 +40,26 @@
   width: 100vw;
   height: 100vh;
   z-index: 99999;
-  background: radial-gradient(circle at center, #350c05 0%, #1a0502 60%, #0d0201 100%);
+  background: radial-gradient(circle at center, rgba(53, 12, 5, 0.92) 0%, rgba(26, 5, 2, 0.96) 60%, #0d0201 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
   overflow: hidden;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
+}
+
+.splash-bg-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/intro.jpg') center bottom / cover no-repeat;
+  opacity: 0.18;
+  filter: blur(4px);
+  transform: scale(1.08);
+  pointer-events: none;
 }
 
 .devotional-splash-screen.splash-fade-out {
@@ -61,6 +74,42 @@
   max-width: 640px;
   width: 100%;
   animation: splashFadeUp 0.8s ease-out forwards;
+}
+
+.splash-temple-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--gold-primary);
+  box-shadow: 0 0 35px rgba(247, 208, 102, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: visible;
+  margin: 0 auto 1.2rem;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.splash-temple-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.splash-avatar-vel {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-saffron);
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #FFF;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .splash-vel-symbol {
