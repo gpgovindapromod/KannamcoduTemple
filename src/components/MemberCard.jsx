@@ -6,13 +6,25 @@ import SpotlightCard from './reactbits/SpotlightCard';
  * Authentic former-site structure: Top portrait, bold title, role, and stylish direct call button.
  */
 export default function MemberCard({ name, role, img, phone, highlight = false, className = '' }) {
+  const webpImg = img ? img.replace(/\.jpg$/, '.webp') : img;
+
   return (
     <SpotlightCard
       className={`member-portrait-card h-100 ${highlight ? 'highlight-leader' : ''} ${className}`}
       spotlightColor="rgba(212, 160, 23, 0.16)"
     >
       <div className="member-img-frame">
-        <img src={img} alt={name} loading="lazy" className="member-img" />
+        <picture>
+          <source srcSet={webpImg} type="image/webp" />
+          <img
+            src={img}
+            alt={name}
+            loading={highlight ? 'eager' : 'lazy'}
+            width="320"
+            height="400"
+            className="member-img"
+          />
+        </picture>
       </div>
 
       <div className="member-info-content">

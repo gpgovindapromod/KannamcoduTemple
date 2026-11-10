@@ -12,12 +12,12 @@ import { buildTelLink } from '../utils/helpers';
 
 export default function Home() {
   const carouselImages = [
-    '/images/1.jpg',
-    '/images/2.jpg',
-    '/images/3.jpg',
-    '/images/4.jpg',
-    '/images/5.jpg',
-    '/images/6.jpg',
+    '/images/1.webp',
+    '/images/2.webp',
+    '/images/3.webp',
+    '/images/4.webp',
+    '/images/5.webp',
+    '/images/6.webp',
   ];
 
   return (
@@ -194,6 +194,9 @@ export default function Home() {
                         <div key={idx} className={`carousel-item ${idx === 0 ? 'active' : ''}`}>
                           <img
                             src={src}
+                            width="600"
+                            height="450"
+                            loading={idx === 0 ? 'eager' : 'lazy'}
                             className="d-block w-100 home-carousel-img"
                             alt={`Temple View ${idx + 1}`}
                           />
@@ -315,7 +318,8 @@ export default function Home() {
                   <video
                     className="w-100 rounded-3"
                     controls
-                    preload="metadata"
+                    preload="none"
+                    poster="/images/temple/temple-main.webp"
                     style={{ maxHeight: '520px', background: '#000' }}
                   >
                     <source src="/video/video.mp4" type="video/mp4" />
