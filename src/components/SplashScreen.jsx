@@ -31,21 +31,21 @@ export default function SplashScreen({ onFinish }) {
     };
   }, [onFinish]);
 
-  // Authentic temple photos for the hanging bunting garlands
+  // Authentic temple photos for the hanging bunting garlands (Optimized WebP thumbnails)
   const topGarland = [
-    { src: '/images/temple/temple-front.jpg', caption: 'ക്ഷേത്രം', rot: -5 },
-    { src: '/images/events/thaipusam-1.jpg', caption: 'തൈപ്പൂയം', rot: 4 },
-    { src: '/images/temple/deity.jpg', caption: 'ശ്രീ സുബ്രഹ്മണ്യൻ', rot: -3 },
-    { src: '/images/gallery/Vel/VKP1.jpg', caption: 'ശക്തിവേൽ', rot: 5 },
-    { src: '/images/events/skanda-shasti.jpg', caption: 'സ്കന്ദഷഷ്ഠി', rot: -4 },
+    { src: '/images/splash-thumbs/temple-front.webp', caption: 'ക്ഷേത്രം', rot: -5 },
+    { src: '/images/splash-thumbs/thaipusam-1.webp', caption: 'തൈപ്പൂയം', rot: 4 },
+    { src: '/images/splash-thumbs/deity.webp', caption: 'ശ്രീ സുബ്രഹ്മണ്യൻ', rot: -3 },
+    { src: '/images/splash-thumbs/VKP1.webp', caption: 'ശക്തിവേൽ', rot: 5 },
+    { src: '/images/splash-thumbs/skanda-shasti.webp', caption: 'സ്കന്ദഷഷ്ഠി', rot: -4 },
   ];
 
   const bottomGarland = [
-    { src: '/images/gallery/Agni/AKP1.jpg', caption: 'അഗ്നിക്കാവടി', rot: 4 },
-    { src: '/images/events/uthram-pooja.jpg', caption: 'ഉത്രം പൂജ', rot: -3 },
-    { src: '/images/events/thaipusam-2.jpg', caption: 'കാവടിയാട്ടം', rot: 5 },
-    { src: '/images/gallery/VelliNeerattu/VNP1.jpg', caption: 'വെള്ളിനീരാട്ട്', rot: -4 },
-    { src: '/images/temple/temple-aerial.jpg', caption: 'സന്നിധാനം', rot: 3 },
+    { src: '/images/splash-thumbs/AKP1.webp', caption: 'അഗ്നിക്കാവടി', rot: 4 },
+    { src: '/images/splash-thumbs/uthram-pooja.webp', caption: 'ഉത്രം പൂജ', rot: -3 },
+    { src: '/images/splash-thumbs/thaipusam-2.webp', caption: 'കാവടിയാട്ടം', rot: 5 },
+    { src: '/images/splash-thumbs/VNP1.webp', caption: 'വെള്ളിനീരാട്ട്', rot: -4 },
+    { src: '/images/splash-thumbs/temple-aerial.webp', caption: 'സന്നിധാനം', rot: 3 },
   ];
 
   return (
