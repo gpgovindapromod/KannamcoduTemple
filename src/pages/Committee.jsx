@@ -28,6 +28,9 @@ export default function Committee() {
             subtitle="Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple Committee Members"
           />
 
+          {/* Subheading for Officers */}
+          <h3 className="visually-hidden">ഭരണസമിതി ഭാരവാഹികൾ (Executive Officers)</h3>
+
           {/* Top Row: Executive Officers (President, Vice President, Secretary) */}
           <div className="row g-4 justify-content-center mb-5 first-row">
             {executives.slice(0, 3).map((exec) => (

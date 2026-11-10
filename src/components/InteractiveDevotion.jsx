@@ -470,12 +470,12 @@ export default function InteractiveDevotion() {
         >
           <i className="fas fa-cube me-2 text-warning"></i>3D വർച്വൽ സന്നിധാനം · 3D SACRED SANCTUM
         </span>
-        <h3
+        <h2
           className="section-title text-white mb-1"
           style={{ fontFamily: 'var(--font-heading)', fontSize: '1.95rem' }}
         >
           Interactive Divine Experience
-        </h3>
+        </h2>
         <p style={{ fontFamily: 'var(--font-malayalam)', color: '#FFE6BD', fontSize: '0.94rem' }}>
           ഭഗവാൻ മുരുകന്റെ ശക്തിവേൽ തിരിക്കാം, പുഷ്പാർച്ചനയും ദീപാരാധനയും മണിനാദവും അർപ്പിക്കാം
         </p>
@@ -568,9 +568,9 @@ export default function InteractiveDevotion() {
         {/* Pancha-Deepam Lighting */}
         <div className="col-md-6">
           <div className="devotion-box p-3 rounded-4 text-center h-100">
-            <h6 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
+            <h3 className="h6 fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
               പഞ്ച ദീപസമർപ്പണം (Pancha-Deepam)
-            </h6>
+            </h3>
             <p className="small mb-2 text-white-50">
               Click each diya lamp to illuminate the shrine
             </p>
@@ -609,9 +609,9 @@ export default function InteractiveDevotion() {
         <div className="col-md-6">
           <div className="devotion-box p-3 rounded-4 text-center h-100 d-flex flex-column justify-content-between">
             <div>
-              <h6 className="fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
+              <h3 className="h6 fw-bold mb-1" style={{ color: 'var(--gold-light)' }}>
                 ശരവണ ഭവ ജപമാല (Mantra Japam)
-              </h6>
+              </h3>
               <p className="small mb-2 text-white-50">
                 Chant "ഓം ശരവണ ഭവായ നമഃ" with pure devotion
               </p>

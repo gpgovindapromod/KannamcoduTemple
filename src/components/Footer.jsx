@@ -84,17 +84,16 @@ export default function Footer() {
               </div>
               <div className="footer-contact-item">
                 <i className="fas fa-phone-alt"></i>
-                <span>
+                <span className="d-flex flex-column gap-2">
                   <a
                     href={buildTelLink(TEMPLE_INFO.phones[0].raw)}
-                    className="text-light text-decoration-none"
+                    className="text-light text-decoration-none d-inline-block py-1"
                   >
                     {TEMPLE_INFO.phones[0].display}
                   </a>
-                  <br />
                   <a
                     href={buildTelLink(TEMPLE_INFO.phones[1].raw)}
-                    className="text-light text-decoration-none"
+                    className="text-light text-decoration-none d-inline-block py-1"
                   >
                     {TEMPLE_INFO.phones[1].display}
                   </a>
@@ -173,7 +172,7 @@ export default function Footer() {
           <div className="container text-center">
             <span>{TEMPLE_INFO.mantra} &nbsp;|&nbsp;</span>
             &copy; {new Date().getFullYear()} {TEMPLE_INFO.name}. All rights reserved. &nbsp;|&nbsp;{' '}
-            <Link to="/privacy-policy" className="text-warning text-decoration-none">
+            <Link to="/privacy-policy" className="text-warning text-decoration-underline">
               Privacy & Legal
             </Link>
           </div>

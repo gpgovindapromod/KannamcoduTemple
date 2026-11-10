@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ai-catalog.schema.json",
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple",
+    "documentationUrl": "https://kannamkodutemple.netlify.app/privacy-policy"
+  },
+  "entries": [
+    {
+      "identifier": "urn:temple:kannamcodu:pooja-vazhipadu",
+      "displayName": "Pooja and Vazhipadu List",
+      "type": "text/html",
+      "url": "https://kannamkodutemple.netlify.app/pooja",
+      "description": "Comprehensive list of daily pooja timings, offerings, and vazhipadu booking details at Kannamcodu Temple.",
+      "tags": ["pooja", "vazhipadu", "temple", "darshan"],
+      "capabilities": ["PoojaSchedule", "OfferingCalculator"],
+      "representativeQueries": [
+        "What are the pooja offerings available at Kannamcodu temple?",
+        "When does the morning darshan start at Kannamcodu?"
+      ]
+    },
+    {
+      "identifier": "urn:temple:kannamcodu:events-festivals",
+      "displayName": "Temple Events & Thaipooyam Mahotsavam",
+      "type": "text/html",
+      "url": "https://kannamkodutemple.netlify.app/events",
+      "description": "Annual temple festival schedules, Thaipooyam Mahotsavam countdown, and devotional programs.",
+      "tags": ["events", "thaipooyam", "kavadi", "festivals"],
+      "capabilities": ["FestivalDates", "EventCountdown"],
+      "representativeQueries": [
+        "When is the next Thaipooyam festival at Kannamcodu?",
+        "What are the major annual festivals celebrated at the temple?"
+      ]
+    }
+  ]
+}
+

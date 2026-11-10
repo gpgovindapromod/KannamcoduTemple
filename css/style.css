@@ -4,8 +4,8 @@
 =================================================== */
 
 :root {
-  --saffron: #FF6B00;
-  --saffron-dark: #D44B00;
+  --saffron: #D44B00;
+  --saffron-dark: #B83A00;
   --gold: #D4A017;
   --gold-light: #F7D066;
   --gold-dark: #A67C00;
@@ -28,6 +28,28 @@
   --font-heading: 'Cinzel', serif;
   --font-body: 'Lora', serif;
   --font-malayalam: 'Noto Sans Malayalam', sans-serif;
+}
+
+/* ===================================================
+   ROOT LAYOUT STABILITY & PREVENT CLS
+=================================================== */
+html, body {
+  height: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container > main {
+  flex: 1 0 auto;
+  min-height: 60vh;
+}
+
+.page-hero {
+  min-height: 180px;
 }
 
 /* ===================================================
@@ -965,7 +987,7 @@ body {
 .section-label {
   font-family: var(--font-heading);
   font-size: 0.85rem;
-  color: var(--saffron);
+  color: var(--saffron-dark);
   letter-spacing: 2.5px;
   text-transform: uppercase;
   font-weight: 700;

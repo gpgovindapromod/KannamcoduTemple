@@ -319,8 +319,8 @@ export default function Home() {
                     className="w-100 rounded-3"
                     controls
                     preload="none"
-                    poster="/images/temple/temple-main.webp"
-                    style={{ maxHeight: '520px', background: '#000' }}
+                    poster="/images/intro.webp"
+                    style={{ maxHeight: '520px', background: '#000', objectFit: 'cover' }}
                   >
                     <source src="/video/video.mp4" type="video/mp4" />
                     <track kind="captions" srcLang="ml" label="Malayalam" />

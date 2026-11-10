@@ -41,8 +41,12 @@ function PageFallback() {
 }
 
 export default function App() {
+  const location = useLocation();
   const [showSplash, setShowSplash] = useState(() => {
-    // Show splash screen only once per browser session
+    // Show splash screen only on initial visit to Home page ('/') once per browser session
+    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+      return false;
+    }
     return !safeStorage.get('temple_splash_seen', null, true);
   });
 

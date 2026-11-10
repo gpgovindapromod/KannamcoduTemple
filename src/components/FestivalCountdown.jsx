@@ -134,7 +134,7 @@ export default function FestivalCountdown() {
         className={`floating-countdown-pill shadow-sm ${expanded ? 'active' : ''}`}
         onClick={() => setExpanded(!expanded)}
         title="തൈപൂയം കൗണ്ട്ഡൗൺ & തീയതി"
-        aria-label="തൈപൂയം കൗണ്ട്ഡൗൺ & തീയതി കാണുക"
+        aria-label={`തൈപൂയം: ${timeLeft.days}d ${String(timeLeft.hours).padStart(2, '0')}h`}
       >
         <span className="live-spark"></span>
         <span className="pill-tag">തൈപൂയം:</span>

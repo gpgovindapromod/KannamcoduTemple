@@ -31,16 +31,23 @@
     <link rel="preload" as="image" href="/images/intro-mobile.webp" media="(max-width: 768px)" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/images/intro.webp" media="(min-width: 769px)" type="image/webp" fetchpriority="high" />
 
-    <!-- Preconnect Origins for Faster Font & CDN Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Local Critical Web Fonts with fetchpriority=high Preloads -->
+    <link rel="ard" href="/.well-known/ai-catalog.json" />
+    <link rel="preload" href="/fonts/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/0QIvMX1D_JOuMwr7I_FMl_E.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/daaHSScvJGqLYhG8nNt8KPPswUAPniZoadlESTGplhXF.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/sJov3K5XjsSdcnzn071rL37lpAOsUThnDZIfPdbeSNzVakglNOWE6zDg56wKn84.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/sJov3K5XjsSdcnzn071rL37lpAOsUThnDZIfPdbeSNzVakglNOWc6zDg56wK.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Self-hosted Google Fonts stylesheet -->
+    <link rel="preload" href="/fonts/google-fonts.css" as="style" />
+    <link rel="stylesheet" href="/fonts/google-fonts.css" />
+
+    <!-- Preconnect Origins for CDNs -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-    <!-- Google Fonts with font-display: swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-    <!-- Bootstrap 5 CSS (Render non-blocking with print onload fallback) -->
+    <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
     
     <!-- Font Awesome with font-display: swap behavior -->
