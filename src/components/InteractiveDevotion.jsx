@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import confetti from 'canvas-confetti';
+
+// Lazy loader for canvas-confetti so it doesn't inflate initial main thread parse time
+let confettiPromise = null;
+const triggerConfetti = (opts) => {
+  if (!confettiPromise) {
+    confettiPromise = import('canvas-confetti').then((m) => m.default || m);
+  }
+  confettiPromise.then((confetti) => confetti(opts)).catch(() => {});
+};
 
 /**
  * 3D Interactive Divine Sannidhanam Experience
@@ -56,7 +64,7 @@ export default function InteractiveDevotion() {
     setTimeout(() => setBellRinging(false), 1400);
 
     // Golden spark burst around the bell
-    confetti({
+    triggerConfetti({
       particleCount: 22,
       spread: 50,
       colors: ['#FFD700', '#FFA500', '#FFF8DC'],
@@ -74,7 +82,7 @@ export default function InteractiveDevotion() {
       const x = (rect.left + rect.width / 2) / window.innerWidth;
       const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-      confetti({
+      triggerConfetti({
         particleCount: 30,
         spread: 60,
         origin: { x, y },
@@ -116,7 +124,7 @@ export default function InteractiveDevotion() {
       return copy;
     });
 
-    confetti({
+    triggerConfetti({
       particleCount: 16,
       spread: 40,
       colors: ['#FFE082', '#FFA000', '#FF6F00'],
@@ -132,13 +140,31 @@ export default function InteractiveDevotion() {
 
     let width = (canvas.width = canvas.parentElement.clientWidth);
     let height = (canvas.height = 380);
+    let isVisible = false;
 
     const handleResize = () => {
       if (!canvas || !canvas.parentElement) return;
       width = canvas.width = canvas.parentElement.clientWidth;
       height = canvas.height = 380;
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    // IntersectionObserver: Only render 3D frames when devotion section is in/near viewport
+    let observer;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible && !animFrameIdRef.current) {
+            render();
+          }
+        },
+        { rootMargin: '100px 0px', threshold: 0.05 }
+      );
+      observer.observe(canvas);
+    } else {
+      isVisible = true;
+    }
 
     // 3D Point Projection Helper
     const project = (x, y, z, rotX, rotY, cx, cy) => {
@@ -170,6 +196,10 @@ export default function InteractiveDevotion() {
     let clock = 0;
 
     const render = () => {
+      if (!isVisible) {
+        animFrameIdRef.current = null;
+        return;
+      }
       clock += 0.025;
       ctx.clearRect(0, 0, width, height);
 
@@ -426,6 +456,7 @@ export default function InteractiveDevotion() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (observer) observer.disconnect();
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
     };
   }, [isAartiActive]);

@@ -6,28 +6,56 @@ export default function GoldenParticles() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+
+    // Respect user prefers-reduced-motion preference
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
     let animationFrameId;
+    let isVisible = true;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
-    const particleCount = 45;
+    // Pause animation when canvas is scrolled out of viewport
+    let observer;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animationFrameId) {
+          render();
+        }
+      }, { threshold: 0.05 });
+      observer.observe(canvas);
+    }
+
+    // 16-18 particles on mobile, 40 on desktop
+    const particleCount = isMobile ? 18 : 40;
     const particles = Array.from({ length: particleCount }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 2.5 + 0.8,
-      speedY: -(Math.random() * 0.7 + 0.2),
-      speedX: (Math.random() - 0.5) * 0.4,
+      x: Math.random() * (canvas.width || 400),
+      y: Math.random() * (canvas.height || 600),
+      radius: Math.random() * (isMobile ? 1.8 : 2.5) + 0.8,
+      speedY: -(Math.random() * 0.5 + 0.2),
+      speedX: (Math.random() - 0.5) * 0.3,
       opacity: Math.random() * 0.7 + 0.2,
       pulse: Math.random() * 0.04 + 0.01,
     }));
 
     const render = () => {
+      if (!isVisible) {
+        animationFrameId = null;
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
@@ -47,8 +75,13 @@ export default function GoldenParticles() {
         grad.addColorStop(0, `rgba(255, 230, 140, ${Math.min(1, Math.max(0, p.opacity))})`);
         grad.addColorStop(1, 'rgba(212, 160, 23, 0)');
         ctx.fillStyle = grad;
-        ctx.shadowColor = 'rgba(247, 208, 102, 0.8)';
-        ctx.shadowBlur = 8;
+
+        // Disable expensive shadowBlur on mobile CPU to eliminate TBT long-tasks
+        if (!isMobile) {
+          ctx.shadowColor = 'rgba(247, 208, 102, 0.8)';
+          ctx.shadowBlur = 6;
+        }
+
         ctx.fill();
         ctx.restore();
       });
@@ -60,7 +93,8 @@ export default function GoldenParticles() {
 
     return () => {
       window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
+      if (observer) observer.disconnect();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

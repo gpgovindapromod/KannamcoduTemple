@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FestivalCountdown from './components/FestivalCountdown';
 import SplashScreen from './components/SplashScreen';
+import Home from './pages/Home';
 import { safeStorage } from './utils/helpers';
 
-// Code-split pages for performance optimization
-const Home = lazy(() => import('./pages/Home'));
+// Code-split secondary routes to keep critical entry bundle light
 const Events = lazy(() => import('./pages/Events'));
 const Committee = lazy(() => import('./pages/Committee'));
 const Pooja = lazy(() => import('./pages/Pooja'));
@@ -31,7 +31,7 @@ function PageFallback() {
   return (
     <div
       className="d-flex justify-content-center align-items-center py-5"
-      style={{ minHeight: '50vh' }}
+      style={{ minHeight: '80vh' }}
     >
       <div className="spinner-border text-warning" role="status">
         <span className="visually-hidden">Loading...</span>
