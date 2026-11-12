@@ -319,7 +319,7 @@ export default function Home() {
                     className="w-100 rounded-3"
                     controls
                     preload="none"
-                    poster="/images/intro.webp"
+                    poster="/images/video-poster.webp"
                     style={{ maxHeight: '520px', background: '#000', objectFit: 'cover' }}
                   >
                     <source src="/video/video.mp4" type="video/mp4" />

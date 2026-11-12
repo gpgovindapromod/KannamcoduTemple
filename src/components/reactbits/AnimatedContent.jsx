@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
 
 /**
- * AnimatedContent Component (inspired by reactbits.dev/animations/animated-content)
- * Viewport entrance wrapper with custom direction, delay, blur, and scale transitions.
+ * AnimatedContent Component (High-Performance CSS Transition Implementation)
+ * Provides smooth entrance animation with zero Framer Motion JavaScript execution overhead.
+ * Uses native IntersectionObserver and hardware-accelerated CSS transitions.
  */
 export default function AnimatedContent({
   children,
@@ -16,38 +16,51 @@ export default function AnimatedContent({
   className = '',
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const [isInView, setIsInView] = useState(false);
 
-  const axis = direction === 'horizontal' ? 'x' : 'y';
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (!('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '-40px 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const offset = reverse ? -distance : distance;
+  const transformInitial =
+    direction === 'horizontal'
+      ? `translate3d(${offset}px, 0, 0) scale(${scale !== 1 ? scale : 0.98})`
+      : `translate3d(0, ${offset}px, 0) scale(${scale !== 1 ? scale : 0.98})`;
+
+  const transformFinal = 'translate3d(0, 0, 0) scale(1)';
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{
-        opacity: 0,
-        [axis]: offset,
-        scale: scale !== 1 ? scale : 0.98,
-        filter: 'blur(6px)',
-      }}
-      animate={
-        isInView
-          ? {
-              opacity: 1,
-              [axis]: 0,
-              scale: 1,
-              filter: 'blur(0px)',
-            }
-          : {}
-      }
-      transition={{
-        duration,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
       className={className}
+      style={{
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? transformFinal : transformInitial,
+        transition: `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+        willChange: isInView ? 'auto' : 'opacity, transform',
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

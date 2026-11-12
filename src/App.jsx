@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FestivalCountdown from './components/FestivalCountdown';
@@ -7,7 +9,6 @@ import SplashScreen from './components/SplashScreen';
 import Home from './pages/Home';
 import { safeStorage } from './utils/helpers';
 
-// Code-split secondary routes to keep critical entry bundle light
 const Events = lazy(() => import('./pages/Events'));
 const Committee = lazy(() => import('./pages/Committee'));
 const Pooja = lazy(() => import('./pages/Pooja'));
@@ -30,10 +31,11 @@ function ScrollToTop() {
 function PageFallback() {
   return (
     <div
-      className="d-flex justify-content-center align-items-center py-5"
-      style={{ minHeight: '80vh' }}
+      className="page-loading-fallback d-flex justify-content-center align-items-center"
+      role="status"
+      aria-label="Loading page"
     >
-      <div className="spinner-border text-warning" role="status">
+      <div className="spinner-border text-warning">
         <span className="visually-hidden">Loading...</span>
       </div>
     </div>
@@ -41,12 +43,14 @@ function PageFallback() {
 }
 
 export default function App() {
-  const location = useLocation();
   const [showSplash, setShowSplash] = useState(() => {
-    // Show splash screen only on initial visit to Home page ('/') once per browser session
-    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.pathname !== '/'
+    ) {
       return false;
     }
+
     return !safeStorage.get('temple_splash_seen', null, true);
   });
 
@@ -57,11 +61,16 @@ export default function App() {
 
   return (
     <>
-      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
+      {showSplash && (
+        <SplashScreen onFinish={handleSplashFinish} />
+      )}
+
       <div className="app-container">
         <ScrollToTop />
+
         <Navbar />
-        <main>
+
+        <main className="app-main">
           <Suspense fallback={<PageFallback />}>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -74,8 +83,9 @@ export default function App() {
             </Routes>
           </Suspense>
         </main>
+
         <Footer />
-        {/* Floating Countdown Pill positioned directly above WhatsApp button */}
+
         <FestivalCountdown />
       </div>
     </>
