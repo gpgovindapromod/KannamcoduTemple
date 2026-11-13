@@ -4,6 +4,7 @@ export { default as Footer } from './common/Footer';
 export { default as PageHero } from './common/PageHero';
 export { default as SectionHeader } from './common/SectionHeader';
 export { default as Lightbox } from './common/Lightbox';
+export { default as ScrollToTopButton } from './common/ScrollToTopButton';
 
 // Feature Components
 export { default as DarshanBar } from './features/DarshanBar';
