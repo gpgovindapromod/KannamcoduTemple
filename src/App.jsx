@@ -46,14 +46,8 @@ export default function App() {
     if (typeof window === 'undefined') return false;
     if (window.location.pathname !== '/') return false;
 
-    // Do not show splash screen if client prefers reduced motion or is a headless bot
+    // Do not show splash screen if client prefers reduced motion
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return false;
-    }
-    if (
-      navigator.userAgent &&
-      /Lighthouse|HeadlessChrome|bot|crawl|spider/i.test(navigator.userAgent)
-    ) {
       return false;
     }
 
