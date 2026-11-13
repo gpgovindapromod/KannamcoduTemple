@@ -8,7 +8,11 @@ export default function GoldenParticles() {
     if (!canvas) return;
 
     // Respect user prefers-reduced-motion preference
-    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       return;
     }
 
@@ -29,12 +33,15 @@ export default function GoldenParticles() {
     // Pause animation when canvas is scrolled out of viewport
     let observer;
     if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible && !animationFrameId) {
-          render();
-        }
-      }, { threshold: 0.05 });
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible && !animationFrameId) {
+            render();
+          }
+        },
+        { threshold: 0.05 }
+      );
       observer.observe(canvas);
     }
 

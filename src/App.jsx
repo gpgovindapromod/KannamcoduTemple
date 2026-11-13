@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -44,10 +43,7 @@ function PageFallback() {
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(() => {
-    if (
-      typeof window !== 'undefined' &&
-      window.location.pathname !== '/'
-    ) {
+    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
       return false;
     }
 
@@ -61,9 +57,7 @@ export default function App() {
 
   return (
     <>
-      {showSplash && (
-        <SplashScreen onFinish={handleSplashFinish} />
-      )}
+      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
 
       <div className="app-container">
         <ScrollToTop />
