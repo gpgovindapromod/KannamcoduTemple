@@ -7,9 +7,9 @@
   },
   "entries": [
     {
-      "identifier": "urn:temple:kannamcodu:pooja-vazhipadu",
+      "identifier": "urn:air:kannamkodutemple.netlify.app:services:pooja-vazhipadu",
       "displayName": "Pooja and Vazhipadu List",
-      "type": "text/html",
+      "type": "application/ai-catalog+json",
       "url": "https://kannamkodutemple.netlify.app/pooja",
       "description": "Comprehensive list of daily pooja timings, offerings, and vazhipadu booking details at Kannamcodu Temple.",
       "tags": ["pooja", "vazhipadu", "temple", "darshan"],
@@ -20,9 +20,9 @@
       ]
     },
     {
-      "identifier": "urn:temple:kannamcodu:events-festivals",
+      "identifier": "urn:air:kannamkodutemple.netlify.app:services:events-festivals",
       "displayName": "Temple Events & Thaipooyam Mahotsavam",
-      "type": "text/html",
+      "type": "application/ai-catalog+json",
       "url": "https://kannamkodutemple.netlify.app/events",
       "description": "Annual temple festival schedules, Thaipooyam Mahotsavam countdown, and devotional programs.",
       "tags": ["events", "thaipooyam", "kavadi", "festivals"],

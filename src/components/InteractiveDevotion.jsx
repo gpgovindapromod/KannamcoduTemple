@@ -138,16 +138,19 @@ export default function InteractiveDevotion() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    let width = (canvas.width = canvas.parentElement.clientWidth);
-    let height = (canvas.height =
-      canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400));
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 576;
+    let width = (canvas.width = isMobile ? Math.min(window.innerWidth - 30, 420) : 500);
+    let height = (canvas.height = isMobile ? 500 : 400);
     let isVisible = false;
 
     const handleResize = () => {
       if (!canvas || !canvas.parentElement) return;
-      width = canvas.width = canvas.parentElement.clientWidth;
-      height = canvas.height =
-        canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400);
+      const w = canvas.parentElement.clientWidth;
+      const h = canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400);
+      if (w && h) {
+        width = canvas.width = w;
+        height = canvas.height = h;
+      }
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
