@@ -15,15 +15,25 @@ export default function SplashScreen({ onFinish }) {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Hold splash screen for 3.4 seconds to enjoy the festive photo bunting, then smoothly fade out
+    // Respect user prefers-reduced-motion: if reduced motion is requested, dismiss immediately
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      if (onFinish) onFinish();
+      return;
+    }
+
+    // Festive photo bunting holds for 1.8 seconds then smoothly fades out
     const fadeTimer = setTimeout(() => {
       setFading(true);
-    }, 3400);
+    }, 1800);
 
     // Completely unmount after fade transition completes
     const exitTimer = setTimeout(() => {
       if (onFinish) onFinish();
-    }, 4100);
+    }, 2400);
 
     return () => {
       clearTimeout(fadeTimer);

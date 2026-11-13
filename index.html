@@ -40,15 +40,19 @@
     <link rel="preload" href="/fonts/sJov3K5XjsSdcnzn071rL37lpAOsUThnDZIfPdbeSNzVakglNOWc6zDg56wK.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Self-hosted Google Fonts stylesheet -->
-    <link rel="preload" href="/fonts/google-fonts.css" as="style" />
-    <link rel="stylesheet" href="/fonts/google-fonts.css" />
+    <link rel="stylesheet" href="/fonts/google-fonts.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="/fonts/google-fonts.css" />
+    </noscript>
 
     <!-- Preload Critical Local Web Fonts with fetchpriority=high Preloads -->
     <link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Bootstrap 5 CSS -->
-    <link rel="preload" href="/css/bootstrap.min.css" as="style" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </noscript>
     
     <!-- Font Awesome (Self-hosted with font-display: swap) -->
     <link rel="stylesheet" href="/css/fontawesome.min.css" media="print" onload="this.media='all'" />
