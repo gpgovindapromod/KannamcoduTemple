@@ -1,5 +1,5 @@
 import React from 'react';
-import SpotlightCard from './reactbits/SpotlightCard';
+import SpotlightCard from '../common/reactbits/SpotlightCard';
 
 /**
  * Reusable MemberCard Component

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import DarshanBar from '../components/DarshanBar';
-import SectionHeader from '../components/SectionHeader';
-import GalleryGrid from '../components/GalleryGrid';
-import GoldenParticles from '../components/GoldenParticles';
-import InteractiveDevotion from '../components/InteractiveDevotion';
-import EventFeatureCard from '../components/EventFeatureCard';
-import ShinyText from '../components/reactbits/ShinyText';
-import AnimatedContent from '../components/reactbits/AnimatedContent';
+import DarshanBar from '../components/features/DarshanBar';
+import SectionHeader from '../components/common/SectionHeader';
+import GalleryGrid from '../components/cards/GalleryGrid';
+import GoldenParticles from '../components/features/GoldenParticles';
+import InteractiveDevotion from '../components/features/InteractiveDevotion';
+import EventFeatureCard from '../components/cards/EventFeatureCard';
+import ShinyText from '../components/common/reactbits/ShinyText';
+import AnimatedContent from '../components/common/reactbits/AnimatedContent';
 import { TEMPLE_INFO } from '../utils/constants';
 import { buildTelLink } from '../utils/helpers';
 

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { MALAYALAM_STARS } from '../utils/constants';
-import { buildWhatsAppLink } from '../utils/helpers';
+import { MALAYALAM_STARS } from '../../utils/constants';
+import { buildWhatsAppLink } from '../../utils/helpers';
 
 export default function VazhipaduCalculator() {
   const [selectedItems, setSelectedItems] = useState({});

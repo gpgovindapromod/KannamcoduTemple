@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { VAZHIPADU_DATA, VAZHIPADU_CATEGORIES, POOJA_TIMETABLE } from '../data/templeData';
-import PageHero from '../components/PageHero';
-import DarshanBar from '../components/DarshanBar';
-import SectionHeader from '../components/SectionHeader';
-import VazhipaduCalculator from '../components/VazhipaduCalculator';
-import SpotlightCard from '../components/reactbits/SpotlightCard';
+import PageHero from '../components/common/PageHero';
+import DarshanBar from '../components/features/DarshanBar';
+import SectionHeader from '../components/common/SectionHeader';
+import VazhipaduCalculator from '../components/features/VazhipaduCalculator';
+import SpotlightCard from '../components/common/reactbits/SpotlightCard';
 
 export default function Pooja() {
   const [search, setSearch] = useState('');

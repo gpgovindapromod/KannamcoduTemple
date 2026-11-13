@@ -1,9 +1,9 @@
 import React from 'react';
 import { COMMITTEE_DATA } from '../data/templeData';
-import PageHero from '../components/PageHero';
-import DarshanBar from '../components/DarshanBar';
-import SectionHeader from '../components/SectionHeader';
-import MemberCard from '../components/MemberCard';
+import PageHero from '../components/common/PageHero';
+import DarshanBar from '../components/features/DarshanBar';
+import SectionHeader from '../components/common/SectionHeader';
+import MemberCard from '../components/cards/MemberCard';
 
 export default function Committee() {
   const { spiritualLeader, executives, members } = COMMITTEE_DATA;

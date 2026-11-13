@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SpotlightCard from './reactbits/SpotlightCard';
+import SpotlightCard from '../common/reactbits/SpotlightCard';
 
 /**
  * Reusable EventFeatureCard Component

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TEMPLE_INFO } from '../utils/constants';
-import { buildWhatsAppLink, buildTelLink } from '../utils/helpers';
+import { TEMPLE_INFO } from '../../utils/constants';
+import { buildWhatsAppLink, buildTelLink } from '../../utils/helpers';
 
 export default function Footer() {
   const defaultWhatsAppText = 'Namaskaram, I would like to know more about the temple.';

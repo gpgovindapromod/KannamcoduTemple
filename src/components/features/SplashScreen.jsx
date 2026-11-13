@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import ShinyText from './reactbits/ShinyText';
-import BlurText from './reactbits/BlurText';
+import ShinyText from '../common/reactbits/ShinyText';
+import BlurText from '../common/reactbits/BlurText';
 import GoldenParticles from './GoldenParticles';
 
 /**

@@ -1,8 +1,8 @@
 import React from 'react';
-import PageHero from '../components/PageHero';
-import DarshanBar from '../components/DarshanBar';
-import SectionHeader from '../components/SectionHeader';
-import GalleryGrid from '../components/GalleryGrid';
+import PageHero from '../components/common/PageHero';
+import DarshanBar from '../components/features/DarshanBar';
+import SectionHeader from '../components/common/SectionHeader';
+import GalleryGrid from '../components/cards/GalleryGrid';
 
 export default function Gallery() {
   return (

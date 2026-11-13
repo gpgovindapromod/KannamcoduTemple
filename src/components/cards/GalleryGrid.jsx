@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { GALLERY_DATA, GALLERY_CATEGORIES } from '../data/templeData';
-import Lightbox from './Lightbox';
+import { GALLERY_DATA, GALLERY_CATEGORIES } from '../../data/templeData';
+import Lightbox from '../common/Lightbox';
 
 export default function GalleryGrid({ limit = 0, showFilters = true }) {
   const [activeFilter, setActiveFilter] = useState('all');

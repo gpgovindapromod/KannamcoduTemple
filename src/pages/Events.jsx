@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { EVENTS_DATA } from '../data/templeData';
-import PageHero from '../components/PageHero';
-import SectionHeader from '../components/SectionHeader';
-import EventDetailCard from '../components/EventDetailCard';
+import PageHero from '../components/common/PageHero';
+import SectionHeader from '../components/common/SectionHeader';
+import EventDetailCard from '../components/cards/EventDetailCard';
 
 export default function Events() {
   const [activeTab, setActiveTab] = useState('yearly');

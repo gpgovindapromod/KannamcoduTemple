@@ -1,10 +1,10 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import FestivalCountdown from './components/FestivalCountdown';
-import SplashScreen from './components/SplashScreen';
+import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
+import FestivalCountdown from './components/features/FestivalCountdown';
+import SplashScreen from './components/features/SplashScreen';
 import Home from './pages/Home';
 import { safeStorage } from './utils/helpers';
 

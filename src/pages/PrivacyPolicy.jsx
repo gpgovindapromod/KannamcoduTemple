@@ -1,6 +1,6 @@
-import PageHero from '../components/PageHero';
-import DarshanBar from '../components/DarshanBar';
-import SectionHeader from '../components/SectionHeader';
+import PageHero from '../components/common/PageHero';
+import DarshanBar from '../components/features/DarshanBar';
+import SectionHeader from '../components/common/SectionHeader';
 import { TEMPLE_INFO } from '../utils/constants';
 
 export default function PrivacyPolicy() {
