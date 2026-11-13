@@ -234,7 +234,7 @@ export default function Home() {
         className="home-festivals-section position-relative"
         style={{
           background:
-            "linear-gradient(135deg, rgba(30, 10, 4, 0.95) 0%, rgba(95, 18, 6, 0.92) 50%, rgba(30, 10, 4, 0.96) 100%), url('/images/temple/temple-evening.jpg') center/cover fixed",
+            "linear-gradient(135deg, rgba(30, 10, 4, 0.95) 0%, rgba(95, 18, 6, 0.92) 50%, rgba(30, 10, 4, 0.96) 100%), url('/images/temple/temple-evening.webp') center/cover fixed",
           borderTop: '2px solid var(--gold)',
           borderBottom: '2px solid var(--gold)',
         }}
