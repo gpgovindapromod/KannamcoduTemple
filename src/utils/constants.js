@@ -32,7 +32,7 @@ export const TEMPLE_INFO = {
   },
   social: {
     facebook: 'https://www.facebook.com/share/151yud18di/',
-    instagram: 'https://www.instagram.com/kannamcodetemple/profilecard/?igsh=MWFuam14NzhpdTdwdg==',
+    instagram: 'https://www.instagram.com/kannamcodetemple?dlrf=MWFuam14NzhpdTdwdg==',
     youtube: 'https://youtube.com/@kannamkodutemple9083?si=_fHr5PoSufTtKzqh',
   },
 };
