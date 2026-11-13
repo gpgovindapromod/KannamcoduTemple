@@ -139,13 +139,15 @@ export default function InteractiveDevotion() {
     const ctx = canvas.getContext('2d');
 
     let width = (canvas.width = canvas.parentElement.clientWidth);
-    let height = (canvas.height = 380);
+    let height = (canvas.height =
+      canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400));
     let isVisible = false;
 
     const handleResize = () => {
       if (!canvas || !canvas.parentElement) return;
       width = canvas.width = canvas.parentElement.clientWidth;
-      height = canvas.height = 380;
+      height = canvas.height =
+        canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400);
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
@@ -168,17 +170,24 @@ export default function InteractiveDevotion() {
 
     // 3D Point Projection Helper
     const project = (x, y, z, rotX, rotY, cx, cy) => {
+      // Responsive scale down for mobile view so Vel & Lotus fit completely
+      const isMobile = width < 576;
+      const modelScale = isMobile ? 0.72 : 1.0;
+      const sx = x * modelScale;
+      const sy = y * modelScale;
+      const sz = z * modelScale;
+
       // Rotate around Y
       const cosY = Math.cos(rotY);
       const sinY = Math.sin(rotY);
-      const x1 = x * cosY - z * sinY;
-      const z1 = z * cosY + x * sinY;
+      const x1 = sx * cosY - sz * sinY;
+      const z1 = sz * cosY + sx * sinY;
 
       // Rotate around X
       const cosX = Math.cos(rotX);
       const sinX = Math.sin(rotX);
-      const y2 = y * cosX - z1 * sinX;
-      const z2 = z1 * cosX + y * sinX;
+      const y2 = sy * cosX - z1 * sinX;
+      const z2 = z1 * cosX + sy * sinX;
 
       // Camera distance
       const fov = 380;
@@ -204,7 +213,9 @@ export default function InteractiveDevotion() {
       ctx.clearRect(0, 0, width, height);
 
       const cx = width / 2;
-      const cy = height / 2 + 20;
+      // Position Vel higher up on mobile so buttons and aura do not overlap
+      const isMobile = width < 576;
+      const cy = isMobile ? height * 0.35 : height / 2 + 20;
 
       // Auto rotation + user interactive drag
       const curRotY = rotationRef.current.y + (isAartiActive ? Math.sin(clock * 1.5) * 0.15 : 0);
@@ -529,65 +540,90 @@ export default function InteractiveDevotion() {
         onTouchMove={handlePointerMove}
         onTouchEnd={handlePointerUp}
       >
-        <canvas ref={canvasRef} style={{ width: '100%', height: '380px', display: 'block' }} />
+        <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block' }} />
 
-        {/* 3D Drag Helper Badge */}
+        {/* Top Badges Bar */}
         <div
-          className="position-absolute top-0 start-0 m-3 px-3 py-1 rounded-pill small"
-          style={{
-            background: 'rgba(0, 0, 0, 0.55)',
-            backdropFilter: 'blur(6px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            fontSize: '0.75rem',
-            color: '#FFE29A',
-            pointerEvents: 'none',
-          }}
+          className="position-absolute top-0 start-0 w-100 p-2 p-md-3 d-flex justify-content-between align-items-center pointer-events-none"
+          style={{ zIndex: 12, pointerEvents: 'none' }}
         >
-          <i className="fas fa-arrows-up-down-left-right me-1"></i> Drag to rotate 3D Vel
-        </div>
-
-        {/* Live Aarti Active Badge */}
-        {isAartiActive && (
+          {/* 3D Drag Helper Badge */}
           <div
-            className="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill small fw-bold"
+            className="px-2 px-md-3 py-1 rounded-pill small"
             style={{
-              background: 'linear-gradient(135deg, #FF6F00, #D84315)',
-              color: '#FFF',
-              boxShadow: '0 0 15px rgba(255, 111, 0, 0.8)',
-              animation: 'pulseGlow 1.5s infinite',
+              background: 'rgba(0, 0, 0, 0.65)',
+              backdropFilter: 'blur(6px)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              fontSize: '0.72rem',
+              color: '#FFE29A',
+              maxWidth: '48%',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
             }}
           >
-            🔥 ദീപാരാധന നടക്കുന്നു...
+            <i className="fas fa-arrows-up-down-left-right me-1"></i> Drag to rotate
           </div>
-        )}
+
+          {/* Live Aarti Active Badge */}
+          {isAartiActive && (
+            <div
+              className="px-2 px-md-3 py-1 rounded-pill small fw-bold"
+              style={{
+                background: 'linear-gradient(135deg, #FF6F00, #D84315)',
+                color: '#FFF',
+                boxShadow: '0 0 15px rgba(255, 111, 0, 0.8)',
+                animation: 'pulseGlow 1.5s infinite',
+                fontSize: '0.72rem',
+                maxWidth: '48%',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              🔥 ദീപാരാധന...
+            </div>
+          )}
+        </div>
 
         {/* Bottom Floating 3D Action Controls */}
         <div
-          className="position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-2 flex-wrap justify-content-center"
-          style={{ zIndex: 10, width: '90%' }}
+          className="sanctum-controls position-absolute bottom-0 start-50 translate-middle-x mb-2 mb-md-3 d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center"
+          style={{ zIndex: 10, width: 'calc(100% - 24px)', maxWidth: '420px' }}
         >
           <button
             onClick={offerFlowers}
-            className="btn btn-warning rounded-pill px-3 py-2 fw-bold shadow"
-            style={{ background: 'var(--gradient-saffron)', border: 'none', color: '#fff' }}
+            className="btn btn-warning rounded-pill px-3 py-2 fw-bold shadow w-100 flex-sm-grow-1"
+            style={{
+              background: 'var(--gradient-saffron)',
+              border: 'none',
+              color: '#fff',
+              fontSize: '0.88rem',
+            }}
           >
             🌺 പുഷ്പാർച്ചന ({flowerCount})
           </button>
           <button
             onClick={toggleAarti}
-            className={`btn rounded-pill px-3 py-2 fw-bold shadow ${
+            className={`btn rounded-pill px-3 py-2 fw-bold shadow w-100 flex-sm-grow-1 ${
               isAartiActive ? 'btn-danger' : 'btn-outline-warning'
             }`}
-            style={isAartiActive ? {} : { background: 'rgba(20,5,2,0.65)', color: '#FFD700' }}
+            style={{
+              ...(isAartiActive ? {} : { background: 'rgba(20,5,2,0.65)', color: '#FFD700' }),
+              fontSize: '0.88rem',
+            }}
           >
-            🪔 {isAartiActive ? 'ആരതി നിർത്തുക' : 'ദീപാരാധന ആരംഭിക്കുക'}
+            🪔 {isAartiActive ? 'ആരതി നിർത്തുക' : 'ദീപാരാധന'}
           </button>
           <button
             onClick={ringBell}
-            className={`btn btn-outline-light rounded-pill px-3 py-2 fw-bold shadow ${
+            className={`btn btn-outline-light rounded-pill px-3 py-2 fw-bold shadow w-100 flex-sm-grow-1 ${
               bellRinging ? 'active' : ''
             }`}
-            style={{ background: 'rgba(20,5,2,0.65)' }}
+            style={{
+              background: 'rgba(20,5,2,0.65)',
+              fontSize: '0.88rem',
+            }}
           >
             🔔 മണിനാദം
           </button>

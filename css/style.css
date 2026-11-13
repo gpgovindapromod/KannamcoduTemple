@@ -2851,6 +2851,27 @@ body {
   word-break: normal;
 }
 
+/* 3D Sanctum Stage Responsive Dimensions */
+.sanctum-3d-stage {
+  height: 420px;
+}
+
+@media (max-width: 576px) {
+  .sanctum-3d-stage {
+    height: 520px;
+    /* Add bottom padding inside canvas stage to clear floating widgets */
+    margin-bottom: 2.5rem !important;
+  }
+  .sanctum-controls {
+    width: calc(100% - 24px) !important;
+    bottom: 12px !important;
+  }
+  .sanctum-controls .btn {
+    padding: 0.55rem 1rem !important;
+    font-size: 0.88rem !important;
+  }
+}
+
 /* Container side padding safeguards for small viewports */
 @media (max-width: 576px) {
   .container {
