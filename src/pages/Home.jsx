@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DarshanBar from '../components/features/DarshanBar';
 import SectionHeader from '../components/common/SectionHeader';
@@ -20,10 +21,36 @@ export default function Home() {
     '/images/6.webp',
   ];
 
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [carouselImages.length]);
+
+  const goToSlide = (idx) => setActiveSlide(idx);
+  const prevSlide = () => setActiveSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+  const nextSlide = () => setActiveSlide((prev) => (prev + 1) % carouselImages.length);
+
   return (
     <>
       {/* ── HERO SECTION ── */}
-      <section className="hero-section" id="hero">
+      <section className="hero-section position-relative overflow-hidden" id="hero">
+        <picture className="hero-bg-picture">
+          <source media="(max-width: 768px)" srcSet="/images/intro-mobile.webp" type="image/webp" />
+          <img
+            src="/images/intro.webp"
+            alt="Kannamcodu Temple"
+            className="hero-bg-img"
+            fetchPriority="high"
+            decoding="async"
+            width="1280"
+            height="853"
+          />
+        </picture>
+        <div className="hero-bg-overlay"></div>
         <GoldenParticles />
         <div className="hero-content">
           <div className="hero-vel-icon">🔱</div>
@@ -171,32 +198,41 @@ export default function Home() {
             <div className="col-lg-5">
               <AnimatedContent direction="horizontal" reverse={true} distance={25} duration={0.65}>
                 <div className="about-visual-wrapper shadow-lg rounded-4 overflow-hidden position-relative">
-                  <div
-                    id="aboutCarouselReact"
-                    className="carousel slide carousel-fade"
-                    data-bs-ride="carousel"
-                    data-bs-interval="3500"
-                  >
+                  <div id="aboutCarouselReact" className="carousel slide carousel-fade">
                     <div className="carousel-indicators">
                       {carouselImages.map((_, idx) => (
                         <button
                           key={idx}
                           type="button"
-                          data-bs-target="#aboutCarouselReact"
-                          data-bs-slide-to={idx}
-                          className={idx === 0 ? 'active' : ''}
+                          onClick={() => goToSlide(idx)}
+                          className={idx === activeSlide ? 'active' : ''}
                           aria-label={`Slide ${idx + 1}`}
                         ></button>
                       ))}
                     </div>
-                    <div className="carousel-inner">
+                    <div className="carousel-inner position-relative">
                       {carouselImages.map((src, idx) => (
-                        <div key={idx} className={`carousel-item ${idx === 0 ? 'active' : ''}`}>
+                        <div
+                          key={idx}
+                          className={`carousel-item ${idx === activeSlide ? 'active' : ''}`}
+                          style={{
+                            position: idx === 0 ? 'relative' : 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            display: 'block',
+                            opacity: idx === activeSlide ? 1 : 0,
+                            pointerEvents: idx === activeSlide ? 'auto' : 'none',
+                            transition: 'opacity 0.6s ease-in-out',
+                          }}
+                        >
                           <img
                             src={src}
                             width="600"
                             height="450"
                             loading={idx === 0 ? 'eager' : 'lazy'}
+                            decoding={idx === 0 ? 'sync' : 'async'}
                             className="d-block w-100 home-carousel-img"
                             alt={`Temple View ${idx + 1}`}
                           />
@@ -206,8 +242,7 @@ export default function Home() {
                     <button
                       className="carousel-control-prev"
                       type="button"
-                      data-bs-target="#aboutCarouselReact"
-                      data-bs-slide="prev"
+                      onClick={prevSlide}
                       aria-label="Previous image"
                     >
                       <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -215,8 +250,7 @@ export default function Home() {
                     <button
                       className="carousel-control-next"
                       type="button"
-                      data-bs-target="#aboutCarouselReact"
-                      data-bs-slide="next"
+                      onClick={nextSlide}
                       aria-label="Next image"
                     >
                       <span className="carousel-control-next-icon" aria-hidden="true"></span>
