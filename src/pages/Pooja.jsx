@@ -213,7 +213,7 @@ export default function Pooja() {
               </p>
               <div className="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="tel:+919074439789" className="btn-temple btn btn-lg text-decoration-none">
-                  <i className="fas fa-phone-alt me-2"></i>+91 90744 39789
+                  <i className="fas fa-phone-alt me-2"></i>+91 9446332498
                 </a>
                 <a href="tel:+919567691538" className="btn-temple btn btn-lg text-decoration-none">
                   <i className="fas fa-phone-alt me-2"></i>+91 95676 91538

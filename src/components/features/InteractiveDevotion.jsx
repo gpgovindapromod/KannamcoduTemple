@@ -138,21 +138,34 @@ export default function InteractiveDevotion() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 576;
-    let width = (canvas.width = isMobile ? Math.min(window.innerWidth - 30, 420) : 500);
-    let height = (canvas.height = isMobile ? 500 : 400);
+    let width = 500;
+    let height = 400;
     let isVisible = false;
 
-    const handleResize = () => {
+    const updateCanvasDimensions = () => {
       if (!canvas || !canvas.parentElement) return;
-      const w = canvas.parentElement.clientWidth;
-      const h = canvas.parentElement.clientHeight || (window.innerWidth < 576 ? 500 : 400);
-      if (w && h) {
+      const w = canvas.parentElement.clientWidth || canvas.clientWidth;
+      const h = canvas.parentElement.clientHeight || canvas.clientHeight || (window.innerWidth < 576 ? 500 : 420);
+      if (w && h && (canvas.width !== w || canvas.height !== h)) {
         width = canvas.width = w;
         height = canvas.height = h;
       }
     };
+
+    updateCanvasDimensions();
+
+    const handleResize = () => {
+      updateCanvasDimensions();
+    };
     window.addEventListener('resize', handleResize, { passive: true });
+
+    let resizeObserver = null;
+    if (typeof ResizeObserver !== 'undefined' && canvas.parentElement) {
+      resizeObserver = new ResizeObserver(() => {
+        updateCanvasDimensions();
+      });
+      resizeObserver.observe(canvas.parentElement);
+    }
 
     // IntersectionObserver: Only render 3D frames when devotion section is in/near viewport
     let observer;
@@ -470,6 +483,7 @@ export default function InteractiveDevotion() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
       if (observer) observer.disconnect();
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
     };

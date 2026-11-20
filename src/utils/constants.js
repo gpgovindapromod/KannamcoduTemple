@@ -4,7 +4,7 @@
 
 export const TEMPLE_INFO = {
   name: 'Vettikkavala Kannamcodu Sree Subrahmanya Swami Temple',
-  nameMal: 'വെട്ടിക്കവല കണ്ണങ്കോട് ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം',
+  nameMal: 'വെട്ടിക്കവല കണ്ണംകോട് ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി ക്ഷേത്രം',
   mantra: 'ॐ ശരവണ ഭവ ॐ',
   location: {
     address:

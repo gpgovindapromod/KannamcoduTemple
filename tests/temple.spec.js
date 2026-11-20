@@ -8,7 +8,7 @@ test.describe('Temple Website Comprehensive E2E Tests', () => {
     // Verify Malayalm title presence
     const bodyText = await page.textContent('body');
     expect(bodyText).toContain('ശ്രീ സുബ്രഹ്മണ്യ സ്വാമി');
-    expect(bodyText).toContain('കണ്ണങ്കോട്');
+    expect(bodyText).toContain('കണ്ണംകോട്');
 
     // Verify phone links exist
     const telLink = page.locator('a[href^="tel:"]').first();

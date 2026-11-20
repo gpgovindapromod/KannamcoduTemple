@@ -38,7 +38,7 @@ export default function VazhipaduCalculator() {
   const whatsAppUrl = useMemo(() => {
     if (selectedList.length === 0) return '#';
     const message =
-      `നമസ്കാരം, കണ്ണങ്കോട് ക്ഷേത്രത്തിൽ വഴിപാട് വിവരങ്ങൾ അറിയുവാൻ ആഗ്രഹിക്കുന്നു:\n` +
+      `നമസ്കാരം, കണ്ണംകോട് ക്ഷേത്രത്തിൽ വഴിപാട് വിവരങ്ങൾ അറിയുവാൻ ആഗ്രഹിക്കുന്നു:\n` +
       `പേര്: ${devoteeName || 'ഭക്തൻ'}\n` +
       `നക്ഷത്രം: ${star}\n` +
       `തീയതി: ${date || 'ഉടൻ'}\n` +

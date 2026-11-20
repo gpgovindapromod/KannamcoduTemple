@@ -32,7 +32,7 @@ export default function Events() {
     <>
       <PageHero
         title="Temple Events & Festivals"
-        subtitle="കണ്ണങ്കോട് ക്ഷേത്രത്തിലെ ആട്ടവിശേഷങ്ങളും ഉത്സവങ്ങളും"
+        subtitle="കണ്ണംകോട് ക്ഷേത്രത്തിലെ ആട്ടവിശേഷങ്ങളും ഉത്സവങ്ങളും"
         bgImage="/images/temple/temple-hero.jpg"
       />
 

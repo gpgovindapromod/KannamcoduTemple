@@ -2986,7 +2986,13 @@ body {
   }
 }
 
-/* Home Carousel Image Responsive Heights */
+/* Home Carousel Image Responsive Heights & Stack Fix */
+.carousel-item {
+  float: none;
+  margin-right: 0;
+  transform: none !important;
+}
+
 .home-carousel-img {
   height: 480px;
   object-fit: cover;

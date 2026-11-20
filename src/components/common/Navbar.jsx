@@ -194,7 +194,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
               <a className="btn-pooja-nav btn w-100 text-center" href="tel:+919074439789">
-                <i className="fas fa-phone-alt me-2"></i>9074439789
+                <i className="fas fa-phone-alt me-2"></i>9446332498
               </a>
             </li>
           </ul>
